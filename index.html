@@ -1,0 +1,3382 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>I KNOW THAT ICON! — Mobil Pop Kültür Kart Oyunu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page & Surfaces */
+      --background: #fef7ff;
+      --surface-container-low: #ffffff;
+      --surface-container: #f8eef8;
+      --surface-container-high: #efe2f1;
+
+      /* Ink */
+      --on-surface: #2e1a28;
+      --on-surface-variant: #604868;
+
+      /* Rules */
+      --outline: #907898;
+      --outline-variant: #dcc8e0;
+
+      /* Accents */
+      --primary: #c2207f;
+      --on-primary: #ffffff;
+      --primary-container: #f6b8dc;
+      --on-primary-container: #2e1a28;
+      --secondary: #7c52aa;
+      --on-secondary: #ffffff;
+      --tertiary: #0096cc;
+      --error: #c53030;
+      --on-error: #ffffff;
+
+      /* Semantic */
+      --positive: #15803d;
+      --positive-bg: #dcfce7;
+      --positive-ink: #14532d;
+      --warning: #b45309;
+      --warning-bg: #fef3c7;
+      --error-bg: #fee2e2;
+      --error-ink: #7f1d1d;
+
+      /* Pop-Art Illustration Palette */
+      --pop-ink: #241420;
+      --pop-cream: #fff9ef;
+      --pop-yellow: #ffd43b;
+      --pop-gold: #f59f00;
+      --pop-red: #e03131;
+      --pop-crimson: #a61e4d;
+      --pop-pink: #ff4da6;
+      --pop-aqua: #22b8cf;
+      --pop-pool: #74c0fc;
+      --pop-emerald: #12b886;
+      --pop-forest: #087f5b;
+      --pop-skin: #ffd8be;
+      --pop-skin-warm: #e8ac84;
+      --pop-skin-deep: #8d5524;
+      --pop-brown: #5c3a21;
+      --pop-silver: #dee2e6;
+      --pop-slate: #495057;
+      --pop-night: #1d1633;
+
+      /* Rarity Foil Tokens (Rainbow ONLY for Efsanevi!) */
+      --holo-c1: rgb(255 60 172 / 0.38);
+      --holo-c2: rgb(43 134 197 / 0.38);
+      --holo-c3: rgb(255 212 59 / 0.38);
+      --holo-c4: rgb(0 212 170 / 0.34);
+      --holo-spot: rgb(255 255 255 / 0.65);
+
+      /* Fonts & Shape */
+      --font-body: 'DM Sans', sans-serif;
+      --rounded: 0.9rem;
+      --rounded-md: 1.25rem;
+      --rounded-lg: 1.65rem;
+      --rounded-full: 9999px;
+
+      /* Shadows & Motion */
+      --shadow-pink: 0 4px 14px rgb(224 64 160 / 0.16);
+      --shadow-grape: 0 4px 14px rgb(124 82 170 / 0.16);
+      --shadow-sky: 0 4px 14px rgb(0 150 204 / 0.14);
+      --shadow-card-3d: 0 14px 32px rgb(46 26 40 / 0.16);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 380ms;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background-color: #efe1f4;
+      background-image:
+        radial-gradient(circle at 18% 15%, rgba(255, 77, 166, 0.14), transparent 42%),
+        radial-gradient(circle at 82% 85%, rgba(0, 150, 204, 0.14), transparent 45%);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    /* ============ COMPACT REALISTIC SMARTPHONE FRAME ============ */
+    .mobile-viewport {
+      width: 100%;
+      height: 100dvh;
+      max-width: 390px;
+      background: var(--background);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 22px 60px rgba(46, 26, 40, 0.24);
+    }
+
+    @media (min-width: 480px) {
+      .mobile-viewport {
+        width: 382px;
+        height: min(740px, 92dvh);
+        border-radius: 2.4rem;
+        border: 7px solid #2e1a28;
+        box-shadow:
+          0 28px 65px rgba(46, 26, 40, 0.28),
+          inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+      }
+      .mobile-viewport::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 84px;
+        height: 14px;
+        background: #2e1a28;
+        border-radius: 999px;
+        z-index: 40;
+        pointer-events: none;
+      }
+    }
+
+    /* Top HUD Bar */
+    .mobile-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+      padding: 1.25rem 0.85rem 0.35rem;
+      z-index: 20;
+      flex-shrink: 0;
+    }
+    @media (max-width: 479px) {
+      .mobile-topbar { padding-top: 0.65rem; }
+    }
+
+    .hud-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+      background: var(--surface-container-low);
+      padding: 0.3rem 0.68rem;
+      border-radius: var(--rounded-full);
+      box-shadow: var(--shadow-grape);
+      font-weight: 800;
+      font-size: 0.78rem;
+      border: 1px solid var(--outline-variant);
+      color: var(--on-surface);
+      cursor: pointer;
+      min-height: 32px;
+    }
+    .hud-chip em { font-style: normal; color: var(--primary); }
+    .hud-chip .val { color: var(--primary); font-weight: 900; }
+    .hud-chip.is-streak .val { color: var(--secondary); }
+
+    /* Screens */
+    .screen {
+      display: none;
+      flex: 1;
+      min-height: 0;
+      flex-direction: column;
+      padding: 0.35rem 0.85rem 0.85rem;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .screen::-webkit-scrollbar { display: none; }
+    .screen.is-active {
+      display: flex;
+      animation: screenIn var(--dur-long) var(--ease-out) both;
+    }
+    @keyframes screenIn {
+      from { opacity: 0; transform: translateY(8px) scale(0.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      border: none;
+      border-radius: var(--rounded-full);
+      padding: 0.62rem 1rem;
+      min-height: 40px;
+      font-weight: 800;
+      font-size: 0.86rem;
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .btn:active:not(:disabled) { transform: scale(0.97); }
+    .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink);
+    }
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--on-secondary);
+      box-shadow: var(--shadow-grape);
+    }
+    .btn-soft {
+      background: var(--surface-container);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+    }
+    .btn-quiet {
+      background: transparent;
+      color: var(--primary);
+      padding: 0.3rem 0.6rem;
+      min-height: 32px;
+      font-size: 0.8rem;
+    }
+
+    /* ============ SCREEN 1: HUB CARD (CLEAN FLEX LAYOUT, ZERO OVERLAP) ============ */
+    .hub-container {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hub-stage {
+      perspective: 1200px;
+      width: 100%;
+      height: 100%;
+      max-height: 590px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      touch-action: pan-y;
+    }
+
+    .card-tilt {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform var(--dur-micro) var(--ease-out);
+      will-change: transform;
+      --rx: 0deg;
+      --ry: 0deg;
+      --mx: 50%;
+      --my: 50%;
+      --holo-op: 0.28;
+      transform: rotateX(var(--rx)) rotateY(var(--ry));
+    }
+
+    @keyframes holoIdleFloat {
+      0%, 100% { transform: rotateX(1.5deg) rotateY(-2deg); }
+      50% { transform: rotateX(-1.5deg) rotateY(2deg); }
+    }
+    .card-tilt:not(.is-interacting) {
+      animation: holoIdleFloat 5s ease-in-out infinite;
+    }
+
+    .card-flipper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.68s var(--ease-bounce);
+    }
+    .card-flipper.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    /* Card Faces - Clean non-overlapping flex layout */
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: 0.95rem;
+      box-shadow: var(--shadow-card-3d);
+      border: 2px solid var(--outline-variant);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .card-face.card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Hide inactive face pointer events so front/back buttons NEVER collide! */
+    .card-flipper:not(.is-flipped) .card-back {
+      pointer-events: none;
+      visibility: hidden;
+      transition: visibility 0s linear 0.34s;
+    }
+    .card-flipper.is-flipped .card-front {
+      pointer-events: none;
+      visibility: hidden;
+      transition: visibility 0s linear 0.34s;
+    }
+    .card-flipper.is-flipped .card-back,
+    .card-flipper:not(.is-flipped) .card-front {
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* ============ FINISH FINISHES: RAINBOW ONLY FOR EFSANEVI, CLEAN MATTE/SATIN FOR OTHERS ============ */
+    .holo-foil {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      z-index: 8;
+      opacity: var(--holo-op);
+      transition: opacity var(--dur-short) var(--ease-out);
+      /* Default clean soft satin sheen (NO eye-straining rainbow!) */
+      background-image: radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.52) 0%, transparent 58%);
+      mix-blend-mode: soft-light;
+    }
+
+    /* Rainbow Holographic Foil ONLY on Efsanevi Cards */
+    .card-face.finish-efsanevi {
+      border-color: #f59f00;
+      box-shadow:
+        0 14px 32px rgba(245, 159, 0, 0.22),
+        inset 0 0 0 1.5px rgba(255, 212, 59, 0.55);
+    }
+    .card-face.finish-efsanevi .holo-foil {
+      background-image:
+        radial-gradient(circle at var(--mx) var(--my), var(--holo-spot) 0%, transparent 50%),
+        linear-gradient(120deg, transparent 16%, var(--holo-c1) 34%, var(--holo-c2) 50%, var(--holo-c3) 66%, var(--holo-c4) 80%, transparent 92%);
+      background-size: 100% 100%, 210% 210%;
+      background-position: 0 0, var(--mx) var(--my);
+      mix-blend-mode: overlay;
+    }
+
+    /* Nostaljik: Warm Cream Matte Paper Finish */
+    .card-face.finish-nostaljik {
+      background: linear-gradient(180deg, #fffdf9 0%, #fbf3fa 100%);
+      border-color: #c8b2d6;
+    }
+    .card-face.finish-nostaljik .holo-foil {
+      opacity: 0.18;
+      background-image: radial-gradient(circle at var(--mx) var(--my), rgba(255, 248, 230, 0.65) 0%, transparent 62%);
+    }
+
+    /* Nadir: Subtle Pearl / Metallic Border Finish */
+    .card-face.finish-nadir {
+      background: linear-gradient(180deg, #ffffff 0%, #f6effb 100%);
+      border-color: #d982b8;
+    }
+    .card-face.finish-nadir .holo-foil {
+      opacity: 0.26;
+      background-image:
+        radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.72) 0%, transparent 52%),
+        linear-gradient(135deg, transparent 25%, rgba(240, 128, 192, 0.22) 50%, transparent 75%);
+      mix-blend-mode: soft-light;
+    }
+
+    /* Hub Front: Balanced, Spacious Splash Card */
+    .hub-front {
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      gap: 0.55rem;
+      cursor: pointer;
+    }
+    .hub-kicker {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      padding: 0.24rem 0.75rem;
+      border-radius: var(--rounded-full);
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+    .hero-title {
+      font-weight: 900;
+      font-size: 1.95rem;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      margin: 0;
+      color: var(--on-surface);
+      z-index: 2;
+      flex-shrink: 0;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--primary);
+      display: inline-block;
+      animation: iconPop 2.6s var(--ease-bounce) infinite;
+    }
+    @keyframes iconPop {
+      0%, 72%, 100% { transform: rotate(0deg) scale(1); }
+      82% { transform: rotate(-3deg) scale(1.06); }
+      91% { transform: rotate(2deg) scale(1.03); }
+    }
+
+    .hub-art-box {
+      width: 100%;
+      flex: 1;
+      min-height: 150px;
+      max-height: 225px;
+      border-radius: var(--rounded-md);
+      overflow: hidden;
+      background: var(--surface-container);
+      border: 2px solid var(--outline-variant);
+      z-index: 2;
+      position: relative;
+    }
+    .hub-art-box svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hub-gesture-hint {
+      z-index: 2;
+      background: var(--surface-container);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: 0.55rem 0.75rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      flex-shrink: 0;
+    }
+    .hub-gesture-main {
+      font-weight: 900;
+      font-size: 0.84rem;
+      color: var(--primary);
+    }
+    .hub-gesture-sub {
+      font-size: 0.72rem;
+      color: var(--on-surface-variant);
+      font-weight: 600;
+    }
+
+    /* Hub Back: Clean Main Menu -> Categories (Zero overlap!) */
+    .hub-back {
+      justify-content: space-between;
+      padding: 0.9rem;
+    }
+
+    .hub-back-view {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+      gap: 0.5rem;
+      z-index: 2;
+      transition: opacity 0.34s var(--ease-out), transform 0.34s var(--ease-out);
+    }
+    .hub-back-view.is-fading-out {
+      opacity: 0;
+      transform: scale(0.96);
+      pointer-events: none;
+    }
+    .hub-back-view.is-hidden {
+      display: none !important;
+    }
+
+    .menu-header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      flex-shrink: 0;
+    }
+    .menu-title {
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .menu-title em { font-style: normal; color: var(--primary); }
+
+    .menu-buttons-stack {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.48rem;
+      flex: 1;
+      min-height: 0;
+    }
+    .menu-btn {
+      width: 100%;
+      justify-content: space-between;
+      padding: 0.58rem 0.95rem;
+      min-height: 42px;
+      font-size: 0.86rem;
+      border-radius: var(--rounded);
+    }
+    .menu-btn-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: left;
+    }
+
+    /* Categories Inside Card Back */
+    .card-cat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      flex-shrink: 0;
+      padding-bottom: 0.2rem;
+      border-bottom: 1px solid var(--outline-variant);
+    }
+    .card-cat-title {
+      font-weight: 900;
+      font-size: 1.02rem;
+      margin: 0;
+    }
+    .card-cat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.38rem;
+      overflow-y: auto;
+      flex: 1;
+      min-height: 0;
+      padding: 0.15rem 0;
+    }
+    .card-cat-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      background: var(--surface-container);
+      border: 1.5px solid transparent;
+      border-radius: var(--rounded);
+      padding: 0.48rem 0.7rem;
+      text-align: left;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform var(--dur-micro) var(--ease-bounce), border-color var(--dur-micro) var(--ease-out);
+    }
+    .card-cat-item:hover, .card-cat-item:active {
+      transform: scale(1.015);
+      background: var(--surface-container-high);
+      border-color: var(--primary);
+    }
+    .card-cat-item-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 0;
+    }
+    .card-cat-emoji {
+      font-size: 1.05rem;
+      width: 28px;
+      height: 28px;
+      border-radius: var(--rounded-full);
+      background: var(--surface-container-low);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-cat-name {
+      font-weight: 800;
+      font-size: 0.82rem;
+      color: var(--on-surface);
+      display: block;
+      line-height: 1.2;
+    }
+    .card-cat-sub {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--on-surface-variant);
+      display: block;
+    }
+    .card-cat-go {
+      font-weight: 900;
+      font-size: 0.78rem;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* ============ GAMEPLAY SCREEN (COMPACT VERTICAL STACK) ============ */
+    .play-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .timer-strip {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      padding: 0.42rem 0.75rem;
+      border: 1px solid var(--outline-variant);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      flex-shrink: 0;
+    }
+    .timer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .timer-label {
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface-variant);
+    }
+    .timer-count {
+      font-size: 0.85rem;
+      font-weight: 900;
+      color: var(--on-surface);
+      font-variant-numeric: tabular-nums;
+    }
+    .timer-count.is-urgent { color: var(--error); }
+    .timer-track {
+      height: 6px;
+      border-radius: var(--rounded-full);
+      background: var(--surface-container-high);
+      overflow: hidden;
+    }
+    .timer-fill {
+      height: 100%;
+      width: 100%;
+      border-radius: var(--rounded-full);
+      background: var(--tertiary);
+      transition: width 0.2s linear, background-color var(--dur-short) var(--ease-out);
+    }
+    .timer-fill.is-urgent { background: var(--error); }
+
+    /* Gameplay 3D Card Stage */
+    .play-stage {
+      perspective: 1100px;
+      width: 100%;
+      height: 306px;
+      flex-shrink: 0;
+      touch-action: pan-y;
+    }
+
+    .card-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+      z-index: 2;
+      margin-bottom: 0.3rem;
+      flex-shrink: 0;
+    }
+    .rarity-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.22rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: var(--rounded-full);
+      font-size: 0.66rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .rarity-efsanevi { background: var(--warning-bg); color: var(--warning); }
+    .rarity-nostaljik { background: var(--surface-container); color: var(--secondary); }
+    .rarity-nadir { background: var(--primary-container); color: var(--on-primary-container); }
+
+    .card-index-pill {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--on-surface-variant);
+      background: var(--surface-container);
+      padding: 0.18rem 0.55rem;
+      border-radius: var(--rounded-full);
+    }
+
+    /* 2-Frame Interactive Artwork Frame */
+    .card-art-frame {
+      border-radius: var(--rounded);
+      overflow: hidden;
+      background: var(--surface-container);
+      position: relative;
+      height: 152px;
+      width: 100%;
+      z-index: 2;
+      flex-shrink: 0;
+      border: 1.5px solid var(--outline-variant);
+    }
+    .art-frame-layer {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(0.985);
+      transition: opacity 0.26s var(--ease-out), transform 0.32s var(--ease-bounce);
+      pointer-events: none;
+    }
+    .art-frame-layer.is-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .art-frame-layer svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .frame-badge-pill {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      z-index: 5;
+      background: rgba(36, 20, 32, 0.84);
+      color: #fff9ef;
+      font-size: 0.64rem;
+      font-weight: 800;
+      padding: 0.16rem 0.5rem;
+      border-radius: var(--rounded-full);
+      letter-spacing: 0.03em;
+    }
+
+    /* Clue Box - Zero Clipping Guaranteed */
+    .card-clue-box {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: 0.45rem 0.68rem;
+      z-index: 2;
+      margin-top: 0.32rem;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.16rem;
+    }
+    .clue-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.3rem;
+      flex-shrink: 0;
+    }
+    .clue-kicker {
+      font-size: 0.63rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--secondary);
+    }
+    .motion-hint-tag {
+      font-size: 0.63rem;
+      font-weight: 800;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+    .clue-text {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--on-surface);
+    }
+
+    /* Card Back: Rich Cultural Archive */
+    .card-back-story {
+      justify-content: space-between;
+      padding: 0.9rem;
+      gap: 0.45rem;
+    }
+    .back-archive-tag {
+      display: inline-flex;
+      align-self: flex-start;
+      background: var(--primary);
+      color: var(--on-primary);
+      padding: 0.18rem 0.65rem;
+      border-radius: var(--rounded-full);
+      font-size: 0.64rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .back-title {
+      font-weight: 900;
+      font-size: 0.98rem;
+      line-height: 1.2;
+      margin: 0.2rem 0 0.08rem;
+      color: var(--on-surface);
+    }
+    .back-era {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--secondary);
+      display: block;
+    }
+    .back-story-box {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: 0.65rem 0.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.35rem;
+      z-index: 2;
+      overflow-y: auto;
+    }
+    .back-story {
+      margin: 0;
+      font-size: 0.78rem;
+      line-height: 1.42;
+      color: var(--on-surface);
+    }
+    .back-trivia {
+      margin: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.32;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.38rem;
+      flex-shrink: 0;
+    }
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: 100%;
+      text-align: left;
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1.5px solid var(--outline-variant);
+      border-radius: var(--rounded-full);
+      padding: 0.42rem 0.75rem;
+      min-height: 39px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      line-height: 1.22;
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce), background-color var(--dur-micro) var(--ease-out);
+    }
+    .option-btn:hover:not(:disabled) {
+      transform: scale(1.01);
+      background: var(--surface-container);
+    }
+    .option-key {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--rounded-full);
+      background: var(--surface-container);
+      color: var(--secondary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .option-btn.is-correct {
+      background: var(--positive-bg);
+      border-color: var(--positive);
+      color: var(--positive-ink);
+    }
+    .option-btn.is-correct .option-key {
+      background: var(--positive);
+      color: var(--on-primary);
+    }
+    .option-btn.is-wrong {
+      background: var(--error-bg);
+      border-color: var(--error);
+      color: var(--error-ink);
+    }
+    .option-btn.is-wrong .option-key {
+      background: var(--error);
+      color: var(--on-error);
+    }
+    .option-btn.is-dimmed { opacity: 0.55; }
+
+    /* Feedback Bar */
+    .feedback-bar {
+      display: none;
+      flex-direction: column;
+      gap: 0.42rem;
+      background: var(--surface-container-low);
+      border: 1.5px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: 0.55rem 0.75rem;
+      animation: screenIn var(--dur-short) var(--ease-bounce) both;
+      flex-shrink: 0;
+    }
+    .feedback-bar.is-visible { display: flex; }
+    .feedback-bar.is-win { border-color: var(--positive); background: #f3fdf6; }
+    .feedback-bar.is-loss { border-color: var(--error); background: #fff5f5; }
+
+    .feedback-title { font-weight: 900; font-size: 0.86rem; }
+    .feedback-sub { font-size: 0.74rem; color: var(--on-surface-variant); font-weight: 600; }
+    .feedback-actions {
+      display: flex;
+      gap: 0.45rem;
+    }
+    .feedback-actions .btn {
+      flex: 1;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.78rem;
+      min-height: 36px;
+    }
+
+    /* ============ SUB-SCREENS: SETTINGS, CREDITS, ARCHIVE, SUMMARY ============ */
+    .panel-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: 1rem;
+      border: 1.5px solid var(--outline-variant);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .panel-title {
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .panel-title em { font-style: normal; color: var(--primary); }
+
+    .setting-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .setting-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface-variant);
+    }
+    .time-pills-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem;
+    }
+    .time-choice-btn {
+      background: var(--surface-container);
+      color: var(--on-surface);
+      border: 1.5px solid transparent;
+      border-radius: var(--rounded);
+      padding: 0.55rem 0.4rem;
+      font-weight: 800;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+    .time-choice-btn.is-selected {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .summary-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem;
+    }
+    .metric-tile {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: 0.55rem 0.4rem;
+      text-align: center;
+    }
+    .metric-label {
+      font-size: 0.64rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+      display: block;
+    }
+    .metric-value {
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+    .metric-tile:nth-child(2) .metric-value { color: var(--secondary); }
+    .metric-tile:nth-child(3) .metric-value { color: var(--on-surface); }
+
+    /* Archive Grid */
+    .archive-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .archive-item {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-md);
+      padding: 0.75rem;
+      border: 1.5px solid var(--outline-variant);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .archive-item.is-locked { opacity: 0.76; }
+    .archive-thumb {
+      border-radius: var(--rounded);
+      overflow: hidden;
+      background: var(--surface-container);
+      height: 155px;
+    }
+    .archive-thumb svg { width: 100%; height: 100%; display: block; }
+    .archive-locked-shield {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      background: var(--surface-container);
+      font-weight: 900;
+    }
+    .archive-item-title { font-weight: 800; font-size: 0.9rem; margin: 0; }
+    .archive-item-story { font-size: 0.76rem; color: var(--on-surface-variant); margin: 0; line-height: 1.4; }
+
+    /* Confetti & Emoji Burst */
+    .fx-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 99;
+    }
+    .confetti-piece {
+      position: fixed;
+      width: 9px;
+      height: 14px;
+      border-radius: var(--rounded-full);
+      animation: confettiFall 1.5s var(--ease-out) forwards;
+    }
+    @keyframes confettiFall {
+      0% { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+      100% { opacity: 0; transform: translate3d(var(--tx), var(--ty), 0) rotate(var(--rot)) scale(0.7); }
+    }
+    .emoji-burst {
+      position: fixed;
+      font-size: 1.85rem;
+      line-height: 1;
+      user-select: none;
+      animation: emojiPop 1.2s var(--ease-out) forwards;
+    }
+    @keyframes emojiPop {
+      0% { opacity: 0; transform: translate3d(0, 10px, 0) scale(0.4); }
+      20% { opacity: 1; transform: translate3d(var(--tx1), var(--ty1), 0) scale(1.2); }
+      100% { opacity: 0; transform: translate3d(var(--tx2), var(--ty2), 0) scale(0.85) rotate(var(--rot)); }
+    }
+  </style>
+</head>
+<body>
+  <div id="fx-layer" class="fx-layer" aria-hidden="true"></div>
+
+  <div class="mobile-viewport">
+    <!-- Top HUD -->
+    <header class="mobile-topbar">
+      <button type="button" class="hud-chip" onclick="goToHubFront()" title="Ana Karta Dön">
+        <span>✨ ICON<em>!</em></span>
+      </button>
+      <div style="display:flex; gap:0.3rem; align-items:center;">
+        <div class="hud-chip">
+          <span>Skor</span>
+          <span class="val" id="hud-score">0</span>
+        </div>
+        <div class="hud-chip is-streak">
+          <span class="val" id="hud-streak">0</span>
+          <span aria-hidden="true">🔥</span>
+        </div>
+        <button type="button" class="hud-chip" onclick="openSettings()" aria-label="Ayarlar">
+          ⚙️
+        </button>
+      </div>
+    </header>
+
+    <!-- SCREEN 1: COMPACT HOLOGRAPHIC HUB CARD -->
+    <main id="screen-hub" class="screen is-active">
+      <div class="hub-container">
+        <div class="hub-stage" id="hub-stage">
+          <div class="card-tilt" id="hub-tilt">
+            <div class="card-flipper" id="hub-flipper">
+              <!-- FRONT FACE: Splash Card (Efsanevi rainbow foil only on cover & Efsanevi cards) -->
+              <div class="card-face card-front finish-efsanevi hub-front" id="hub-front-face">
+                <div class="holo-foil"></div>
+                <span class="hub-kicker">Pop Kültür Kart Koleksiyonu</span>
+                <h1 class="hero-title">I KNOW THAT <em>ICON!</em></h1>
+                <div class="hub-art-box" id="hub-teaser-art"></div>
+                <div class="hub-gesture-hint">
+                  <span class="hub-gesture-main">👆 Parmağınla Kaydır veya Dokun &amp; Çevir</span>
+                  <span class="hub-gesture-sub">Kartı çevirerek Ana Menüye ve Kategorilere ulaş</span>
+                </div>
+              </div>
+
+              <!-- BACK FACE: Clean Matte Finish for Easy Reading -->
+              <div class="card-face card-back finish-nostaljik hub-back">
+                <div class="holo-foil"></div>
+
+                <!-- View A: Main Menu -->
+                <div class="hub-back-view" id="hub-menu-view">
+                  <div class="menu-header">
+                    <span class="hub-kicker">Ana Menü</span>
+                    <h2 class="menu-title">I KNOW THAT <em>ICON!</em></h2>
+                  </div>
+
+                  <div class="menu-buttons-stack">
+                    <button type="button" class="btn btn-primary menu-btn" onclick="revealCategoriesOnCard()">
+                      <span class="menu-btn-left"><span>🎮</span><span>PLAY / OYNA</span></span>
+                      <span>→</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary menu-btn" onclick="startMixedMarathon()">
+                      <span class="menu-btn-left"><span>⚡</span><span>Karışık Maraton (10 Kart)</span></span>
+                      <span>→</span>
+                    </button>
+                    <button type="button" class="btn btn-soft menu-btn" onclick="goToArchive()">
+                      <span class="menu-btn-left"><span>📚</span><span>Koleksiyonlarım</span></span>
+                      <span id="menu-archive-badge">0/25</span>
+                    </button>
+                    <button type="button" class="btn btn-soft menu-btn" onclick="openSettings()">
+                      <span class="menu-btn-left"><span>⚙️</span><span>Ayarlar (<span id="menu-time-badge">30 sn</span>)</span></span>
+                      <span>→</span>
+                    </button>
+                    <button type="button" class="btn btn-soft menu-btn" onclick="openCredits()">
+                      <span class="menu-btn-left"><span>✨</span><span>Credits</span></span>
+                      <span>→</span>
+                    </button>
+                  </div>
+
+                  <button type="button" class="btn btn-quiet" onclick="flipHubToFront()">
+                    ↻ Ön Yüze Çevir
+                  </button>
+                </div>
+
+                <!-- View B: Categories -->
+                <div class="hub-back-view is-hidden" id="hub-categories-view">
+                  <div class="card-cat-header">
+                    <h3 class="card-cat-title">Kategorini Seç</h3>
+                    <button type="button" class="btn btn-quiet" onclick="backToMenuOnCard()">← Menü</button>
+                  </div>
+                  <div class="card-cat-list" id="card-cat-list"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SCREEN 2: GAMEPLAY -->
+    <section id="screen-play" class="screen">
+      <div class="play-stack">
+        <!-- Timer Bar -->
+        <div class="timer-strip">
+          <div class="timer-row">
+            <span class="timer-label" id="timer-status-label">Tahmin Süresi</span>
+            <span class="timer-count" id="timer-count">30 sn</span>
+          </div>
+          <div class="timer-track">
+            <div class="timer-fill" id="timer-bar-fill"></div>
+          </div>
+        </div>
+
+        <!-- 3D Card with Rarity-Specific Finish (Rainbow ONLY on Efsanevi!) -->
+        <div class="play-stage" id="play-card-stage">
+          <div class="card-tilt" id="play-card-tilt">
+            <div class="card-flipper" id="play-card-flipper">
+              <!-- Card Front -->
+              <div class="card-face card-front" id="play-front-face">
+                <div class="holo-foil"></div>
+                <div class="card-meta-row">
+                  <span class="rarity-pill" id="card-rarity">Efsanevi</span>
+                  <span class="card-index-pill" id="card-progress">1 / 5</span>
+                </div>
+
+                <div class="card-art-frame" id="card-art-container">
+                  <div class="art-frame-layer is-visible" id="art-frame-0"></div>
+                  <div class="art-frame-layer" id="art-frame-1"></div>
+                  <span class="frame-badge-pill" id="frame-badge-pill">Kare 1/2 • Kartı Oynat</span>
+                </div>
+
+                <div class="card-clue-box">
+                  <div class="clue-header-row">
+                    <span class="clue-kicker" id="card-cat-label">İpucu</span>
+                    <span class="motion-hint-tag">↔ Kartı oynat: 2 Kare</span>
+                  </div>
+                  <p class="clue-text" id="card-clue-text"></p>
+                </div>
+              </div>
+
+              <!-- Card Back: Rich Cultural Archive -->
+              <div class="card-face card-back card-back-story" id="play-back-face">
+                <div class="holo-foil"></div>
+                <div>
+                  <span class="back-archive-tag">Kültür Arşivi • İkonik An</span>
+                  <h3 class="back-title" id="back-title"></h3>
+                  <span class="back-era" id="back-era"></span>
+                </div>
+                <div class="back-story-box">
+                  <p class="back-story" id="back-story"></p>
+                  <p class="back-trivia" id="back-trivia"></p>
+                </div>
+                <div class="card-meta-row" style="margin-bottom:0;">
+                  <span class="rarity-pill" id="back-rarity">Efsanevi</span>
+                  <span class="card-index-pill">Aşağıdan kartı çevirebilirsin</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Multiple Choice Options -->
+        <div class="options-list" id="options-list"></div>
+
+        <!-- Instant Feedback Bar -->
+        <div class="feedback-bar" id="feedback-bar" aria-live="polite">
+          <div>
+            <div class="feedback-title" id="feedback-title"></div>
+            <div class="feedback-sub" id="feedback-sub"></div>
+          </div>
+          <div class="feedback-actions">
+            <button type="button" class="btn btn-soft" onclick="flipCardManual()">
+              ↻ Kartı Çevir
+            </button>
+            <button type="button" class="btn btn-primary" id="btn-next-card" onclick="nextCard()">
+              Sonraki Kart →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: SETTINGS -->
+    <section id="screen-settings" class="screen">
+      <div class="panel-card">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h2 class="panel-title">Oyun <em>Ayarları</em></h2>
+          <button type="button" class="btn btn-quiet" onclick="returnFromSubscreen()">← Geri</button>
+        </div>
+
+        <div class="setting-group">
+          <span class="setting-label">Tahmin Süresi (Kart Başına En Az 30 sn)</span>
+          <div class="time-pills-row" id="time-pills-row">
+            <button type="button" class="time-choice-btn is-selected" data-sec="30" onclick="setRoundDuration(30)">30 Saniye</button>
+            <button type="button" class="time-choice-btn" data-sec="45" onclick="setRoundDuration(45)">45 Saniye</button>
+            <button type="button" class="time-choice-btn" data-sec="60" onclick="setRoundDuration(60)">60 Saniye</button>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <span class="setting-label">Ses Efektleri</span>
+          <button type="button" class="btn btn-soft" id="settings-sound-btn" onclick="toggleSound()">
+            🔊 Ses Efektleri: Açık
+          </button>
+        </div>
+
+        <div class="setting-group">
+          <span class="setting-label">Koleksiyon İlerlemesi</span>
+          <button type="button" class="btn btn-quiet" id="btn-reset-progress" onclick="resetArchive(this)">
+            İlerlemeyi Sıfırla
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: CREDITS -->
+    <section id="screen-credits" class="screen">
+      <div class="panel-card">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h2 class="panel-title">Oyun <em>Credits</em></h2>
+          <button type="button" class="btn btn-quiet" onclick="returnFromSubscreen()">← Geri</button>
+        </div>
+        <p style="margin:0; font-size:0.86rem; color:var(--on-surface-variant);">
+          <strong>I KNOW THAT ICON!</strong>, televizyon, sahne, moda ve internet hafızasına kazınan ikonik anları
+          2 kareli etkileşimli pop-art illüstrasyonlar ve nadirlik dokulu koleksiyon kartlarıyla buluşturan bir pop kültür oyunudur.
+        </p>
+        <div style="background:var(--surface-container); border-radius:var(--rounded); padding:0.75rem; font-size:0.8rem; display:flex; flex-direction:column; gap:0.3rem;">
+          <div><strong>Yaratıcı Konsept &amp; Kürasyon:</strong> Zeynep</div>
+          <div><strong>Kart Dokuları:</strong> Efsanevi (Gökkuşağı Holo), Nadir (İnci Parlak), Nostaljik (Mat)</div>
+          <div><strong>İllüstrasyon &amp; 2-Frame Motoru:</strong> Özel Pop-Art Vektör Sahneler</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 5: ROUND SUMMARY -->
+    <section id="screen-summary" class="screen">
+      <div class="panel-card">
+        <span class="hub-kicker" id="summary-badge" style="align-self:flex-start;">Tur Tamamlandı</span>
+        <h2 class="panel-title" id="summary-title">Harika bir <em>performans!</em></h2>
+        <p style="margin:0; font-size:0.8rem; color:var(--on-surface-variant);" id="summary-sub"></p>
+
+        <div class="summary-metrics">
+          <div class="metric-tile">
+            <span class="metric-label">Tur Skoru</span>
+            <span class="metric-value" id="sum-score">0</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-label">Doğru</span>
+            <span class="metric-value" id="sum-correct">0/5</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-label">En İyi Seri</span>
+            <span class="metric-value" id="sum-streak">0</span>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:0.45rem;">
+          <button type="button" class="btn btn-primary" onclick="replayLastMode()">↻ Tekrar Oyna</button>
+          <button type="button" class="btn btn-secondary" onclick="shareRoundSummary()">📋 Skoru Paylaş</button>
+          <button type="button" class="btn btn-soft" onclick="goToHubCategories()">Kategorilere Dön</button>
+        </div>
+        <div id="share-feedback-note" style="font-size:0.76rem; font-weight:700; color:var(--positive); min-height:1.1em;"></div>
+      </div>
+    </section>
+
+    <!-- SCREEN 6: COLLECTIONS / ARCHIVE -->
+    <section id="screen-archive" class="screen">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.45rem;">
+        <h2 class="panel-title">Koleksiyonlarım</h2>
+        <button type="button" class="btn btn-quiet" onclick="returnFromSubscreen()">← Menü</button>
+      </div>
+      <p style="margin:0 0 0.6rem; font-size:0.78rem; color:var(--on-surface-variant);" id="archive-subtitle"></p>
+      <div class="archive-grid" id="archive-grid"></div>
+    </section>
+  </div>
+
+  <script>
+    /* =========================================================================
+       1. ENRICHED 2-FRAME POP-ART SVG ILLUSTRATIONS (More scenic & prop details!)
+       ========================================================================= */
+    function buildPopArtFrameSvg(id, frameIdx) {
+      const f = frameIdx === 1 ? 1 : 0;
+      const wrap = (bg, inner) => `
+        <svg viewBox="0 0 320 215" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="320" height="215" fill="${bg}"/>
+          <g opacity="0.14" fill="var(--pop-ink)">
+            <circle cx="20" cy="18" r="2.5"/><circle cx="44" cy="18" r="2.5"/><circle cx="68" cy="18" r="2.5"/>
+            <circle cx="20" cy="40" r="2.5"/><circle cx="44" cy="40" r="2.5"/><circle cx="68" cy="40" r="2.5"/>
+            <circle cx="252" cy="175" r="2.5"/><circle cx="276" cy="175" r="2.5"/><circle cx="300" cy="175" r="2.5"/>
+            <circle cx="252" cy="197" r="2.5"/><circle cx="276" cy="197" r="2.5"/><circle cx="300" cy="197" r="2.5"/>
+          </g>
+          ${inner}
+        </svg>`;
+
+      switch (id) {
+        case `behlul`:
+          return wrap(`var(--pop-cream)`, f === 0 ? `
+            <!-- Bosphorus Sky, Bridge Silhouette & Yali Terrace -->
+            <rect x="0" y="0" width="320" height="118" fill="var(--pop-pool)" opacity="0.32"/>
+            <path d="M180,96 Q235,54 295,96" fill="none" stroke="var(--pop-slate)" stroke-width="2" opacity="0.55"/>
+            <line x1="210" y1="74" x2="210" y2="96" stroke="var(--pop-slate)" stroke-width="2" opacity="0.55"/>
+            <line x1="265" y1="74" x2="265" y2="96" stroke="var(--pop-slate)" stroke-width="2" opacity="0.55"/>
+            <rect x="0" y="96" width="320" height="20" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="26" y="62" width="12" height="34" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <rect x="74" y="62" width="12" height="34" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <rect x="282" y="62" width="12" height="34" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <!-- Pool & Lounger -->
+            <rect x="0" y="116" width="320" height="99" fill="var(--pop-aqua)"/>
+            <ellipse cx="185" cy="172" rx="102" ry="22" fill="var(--pop-pool)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="0" y="116" width="96" height="44" rx="6" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <!-- Behlül Ready to Leap -->
+            <g transform="translate(36, 26)">
+              <path d="M22,88 L14,114 M36,88 L46,112" stroke="var(--pop-skin)" stroke-width="10" stroke-linecap="round"/>
+              <path d="M22,88 L14,114 M36,88 L46,112" stroke="var(--pop-ink)" stroke-width="3" fill="none"/>
+              <rect x="16" y="66" width="28" height="24" rx="6" fill="var(--pop-night)" stroke="var(--pop-ink)" stroke-width="3"/>
+              <rect x="17" y="38" width="26" height="30" rx="8" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+              <path d="M20,44 L-4,62" stroke="var(--pop-skin)" stroke-width="9" stroke-linecap="round"/>
+              <path d="M20,44 L-4,62" stroke="var(--pop-ink)" stroke-width="2.5" fill="none"/>
+              <circle cx="32" cy="22" r="18" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+              <path d="M14,18 Q24,-4 46,4 Q56,10 48,26 Q34,14 14,18 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+              <circle cx="38" cy="22" r="3.5" fill="var(--pop-pool)" stroke="var(--pop-ink)" stroke-width="1.5"/>
+            </g>
+            <path d="M98,42 L114,34 M102,54 L120,52" stroke="var(--pop-pink)" stroke-width="3" stroke-linecap="round"/>
+          ` : `
+            <rect x="0" y="0" width="320" height="118" fill="var(--pop-pool)" opacity="0.32"/>
+            <path d="M180,96 Q235,54 295,96" fill="none" stroke="var(--pop-slate)" stroke-width="2" opacity="0.55"/>
+            <rect x="0" y="96" width="320" height="20" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="26" y="62" width="12" height="34" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <rect x="282" y="62" width="12" height="34" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <rect x="0" y="116" width="320" height="99" fill="var(--pop-aqua)"/>
+            <ellipse cx="175" cy="172" rx="108" ry="25" fill="var(--pop-pool)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M62,74 Q125,18 178,94" fill="none" stroke="var(--pop-yellow)" stroke-width="4" stroke-dasharray="8 6"/>
+            <g transform="translate(128, 28) rotate(32)">
+              <path d="M12,48 L-14,34 M14,60 L-12,68" stroke="var(--pop-skin)" stroke-width="10" stroke-linecap="round"/>
+              <path d="M12,48 L-14,34 M14,60 L-12,68" stroke="var(--pop-ink)" stroke-width="3" fill="none"/>
+              <rect x="12" y="42" width="24" height="24" rx="6" fill="var(--pop-night)" stroke="var(--pop-ink)" stroke-width="3"/>
+              <rect x="34" y="40" width="28" height="26" rx="8" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+              <path d="M58,44 L86,32 M58,58 L84,66" stroke="var(--pop-skin)" stroke-width="9" stroke-linecap="round"/>
+              <path d="M58,44 L86,32 M58,58 L84,66" stroke="var(--pop-ink)" stroke-width="2.5" fill="none"/>
+              <circle cx="66" cy="24" r="19" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+              <path d="M44,20 Q52,-6 78,2 Q90,10 82,28 Q66,14 44,20 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+              <circle cx="72" cy="23" r="3.8" fill="var(--pop-pool)" stroke="var(--pop-ink)" stroke-width="1.5"/>
+              <ellipse cx="73" cy="33" rx="5" ry="4" fill="var(--pop-red)"/>
+            </g>
+            <path d="M112,158 Q96,130 118,138 Q130,116 142,146" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M214,156 Q234,126 244,144 Q260,132 238,162" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+          `);
+
+        case `hurrem`:
+          return wrap(`var(--pop-crimson)`, f === 0 ? `
+            <!-- Palace Arch & Lanterns -->
+            <path d="M36,215 L36,70 Q160,6 284,70 L284,215 Z" fill="var(--pop-night)" stroke="var(--pop-gold)" stroke-width="4"/>
+            <line x1="64" y1="36" x2="64" y2="74" stroke="var(--pop-gold)" stroke-width="2.5"/>
+            <circle cx="64" cy="80" r="8" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="2"/>
+            <line x1="256" y1="36" x2="256" y2="74" stroke="var(--pop-gold)" stroke-width="2.5"/>
+            <circle cx="256" cy="80" r="8" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="2"/>
+            <!-- Red Hair, Emerald Kaftan, Emerald Ring & Crown -->
+            <path d="M98,80 Q85,148 104,195 L216,195 Q235,148 222,80 Q160,50 98,80 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M88,215 L114,148 L206,148 L232,215 Z" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <ellipse cx="160" cy="108" rx="35" ry="42" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M142,98 L155,103 M178,98 L165,103" stroke="var(--pop-ink)" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M150,128 Q160,122 170,128" stroke="var(--pop-red)" stroke-width="3.5" fill="none"/>
+            <path d="M118,76 L128,38 L146,60 L160,28 L174,60 L192,38 L202,76 Z" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="54" r="6" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="2"/>
+            <!-- Emerald Ring Detail -->
+            <ellipse cx="116" cy="184" rx="10" ry="8" fill="var(--pop-emerald)" stroke="var(--pop-gold)" stroke-width="3"/>
+          ` : `
+            <path d="M36,215 L36,70 Q160,6 284,70 L284,215 Z" fill="var(--pop-night)" stroke="var(--pop-yellow)" stroke-width="4"/>
+            <path d="M92,78 Q74,148 98,198 L222,198 Q246,148 228,78 Q160,46 92,78 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M84,215 L112,146 L208,146 L236,215 Z" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <ellipse cx="160" cy="108" rx="36" ry="43" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M140,95 L155,102 M180,95 L165,102" stroke="var(--pop-ink)" stroke-width="4" stroke-linecap="round"/>
+            <ellipse cx="160" cy="129" rx="12" ry="10" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M116,74 L126,34 L146,58 L160,24 L174,58 L194,34 L204,74 Z" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="54" r="6" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="2"/>
+            <ellipse cx="116" cy="184" rx="10" ry="8" fill="var(--pop-emerald)" stroke="var(--pop-gold)" stroke-width="3"/>
+            <polygon points="224,44 256,22 250,46 286,36 264,60 294,72 260,78 274,98 242,84 222,96 228,72 204,64" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <text x="250" y="68" text-anchor="middle" font-weight="900" font-size="14" fill="var(--pop-red)">SÜLÜMAN!</text>
+          `);
+
+        case `selena`:
+          return wrap(`var(--pop-pink)`, f === 0 ? `
+            <circle cx="74" cy="82" r="24" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M48,80 Q54,48 94,56 Q104,76 94,96" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="246" cy="82" r="24" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M220,80 Q230,46 270,58 Q276,82 264,96" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="160" cy="54" r="24" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M136,52 Q155,20 186,44 Q188,64 178,68" fill="var(--pop-ink)" stroke="var(--pop-ink)" stroke-width="2"/>
+            <path d="M96,144 L138,144 M224,144 L182,144 M160,96 L160,126" stroke="var(--pop-skin)" stroke-width="11" stroke-linecap="round"/>
+            <path d="M96,144 L138,144 M224,144 L182,144 M160,96 L160,126" stroke="var(--pop-ink)" stroke-width="3" fill="none"/>
+            <text x="160" y="192" text-anchor="middle" font-weight="900" font-size="13" fill="var(--pop-cream)">SE-LE-NA...</text>
+          ` : `
+            <polygon points="160,14 182,74 245,58 204,108 260,144 196,154 214,208 160,172 106,208 124,154 60,144 116,108 75,58 138,74" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="72" cy="70" r="23" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M46,68 Q52,36 92,44 Q102,64 92,84" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="248" cy="70" r="23" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M222,68 Q232,34 272,46 Q278,70 266,84" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="160" cy="44" r="23" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <polygon points="160,86 96,186 224,186" fill="var(--pop-aqua)" stroke="var(--pop-ink)" stroke-width="4"/>
+            <polygon points="160,112 122,172 198,172" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M160,128 L165,140 L178,145 L165,150 L160,162 L155,150 L142,145 L155,140 Z" fill="var(--pop-pink)" stroke="var(--pop-ink)" stroke-width="2"/>
+          `);
+
+        case `yaprak`:
+          return wrap(`var(--pop-cream)`, f === 0 ? `
+            <!-- Wooden Mansion Window & Falling Autumn Leaves -->
+            <rect x="20" y="18" width="54" height="68" rx="6" fill="var(--pop-pool)" opacity="0.45" stroke="var(--pop-brown)" stroke-width="3"/>
+            <line x1="47" y1="18" x2="47" y2="86" stroke="var(--pop-brown)" stroke-width="2.5"/>
+            <path d="M254,36 Q272,22 278,44 Q260,54 254,36 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <rect x="82" y="96" width="156" height="112" rx="22" fill="var(--pop-crimson)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <rect x="66" y="140" width="32" height="68" rx="12" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="222" y="140" width="32" height="68" rx="12" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M106,208 L118,134 L202,134 L214,208 Z" fill="var(--pop-slate)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="100" r="33" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M126,92 Q126,66 160,64 Q194,66 194,92 Q180,76 160,78 Q140,76 126,92 Z" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <path d="M144,118 Q160,110 176,118" stroke="var(--pop-silver)" stroke-width="6" stroke-linecap="round"/>
+          ` : `
+            <rect x="20" y="18" width="54" height="68" rx="6" fill="var(--pop-pool)" opacity="0.45" stroke="var(--pop-brown)" stroke-width="3"/>
+            <path d="M36,96 Q50,78 60,98 Q44,112 36,96 Z" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <path d="M266,112 Q284,98 290,120 Q272,130 266,112 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <rect x="82" y="96" width="156" height="112" rx="22" fill="var(--pop-crimson)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <rect x="66" y="140" width="32" height="68" rx="12" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="222" y="140" width="32" height="68" rx="12" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M106,208 L118,134 L202,134 L214,208 Z" fill="var(--pop-slate)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="104" r="33" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M126,96 Q126,70 160,68 Q194,70 194,96 Q180,80 160,82 Q140,80 126,96 Z" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <path d="M144,122 Q160,114 176,122" stroke="var(--pop-silver)" stroke-width="6" stroke-linecap="round"/>
+            <path d="M108,158 L132,94 L152,98 L134,162" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M204,74 L214,62 M212,84 L226,78" stroke="var(--pop-ink)" stroke-width="3" stroke-linecap="round"/>
+          `);
+
+        case `sahika`:
+          return wrap(`var(--pop-pink)`, f === 0 ? `
+            <polygon points="0,0 190,0 130,215 0,215" fill="var(--pop-yellow)"/>
+            <rect x="22" y="20" width="66" height="24" rx="12" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <text x="55" y="36" text-anchor="middle" font-weight="900" font-size="10" fill="var(--pop-ink)">NİŞANTAŞI</text>
+            <path d="M74,215 L96,136 L224,136 L246,215 Z" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="122" cy="172" r="7" fill="var(--pop-brown)"/><circle cx="196" cy="166" r="8" fill="var(--pop-brown)"/>
+            <path d="M110,58 Q160,24 210,58 L218,128 L102,128 Z" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <ellipse cx="160" cy="90" rx="34" ry="36" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M114,76 L154,82 Q148,102 122,98 Z" fill="var(--pop-ink)" stroke="var(--pop-cream)" stroke-width="2.5"/>
+            <path d="M206,76 L166,82 Q172,102 198,98 Z" fill="var(--pop-ink)" stroke="var(--pop-cream)" stroke-width="2.5"/>
+            <circle cx="222" cy="168" r="21" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="215" cy="164" r="3" fill="var(--pop-ink)"/><circle cx="229" cy="164" r="3" fill="var(--pop-ink)"/>
+          ` : `
+            <polygon points="0,0 190,0 130,215 0,215" fill="var(--pop-yellow)"/>
+            <path d="M74,215 L96,136 L224,136 L246,215 Z" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="122" cy="172" r="7" fill="var(--pop-brown)"/><circle cx="196" cy="166" r="8" fill="var(--pop-brown)"/>
+            <path d="M110,58 Q160,24 210,58 L218,128 L102,128 Z" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <ellipse cx="160" cy="90" rx="34" ry="36" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M114,84 L154,90 Q148,110 122,106 Z" fill="var(--pop-ink)" stroke="var(--pop-cream)" stroke-width="2.5"/>
+            <path d="M206,84 L166,90 Q172,110 198,106 Z" fill="var(--pop-ink)" stroke="var(--pop-cream)" stroke-width="2.5"/>
+            <circle cx="138" cy="76" r="3" fill="var(--pop-ink)"/><circle cx="182" cy="76" r="3" fill="var(--pop-ink)"/>
+            <path d="M148,116 Q162,124 176,114" stroke="var(--pop-red)" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <circle cx="222" cy="164" r="21" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <text x="222" y="136" text-anchor="middle" font-weight="900" font-size="13" fill="var(--pop-ink)">HAV!</text>
+          `);
+
+        case `sevda`:
+          return wrap(`var(--pop-aqua)`, f === 0 ? `
+            <rect x="18" y="16" width="88" height="30" rx="15" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <text x="62" y="36" text-anchor="middle" font-weight="900" font-size="12" fill="var(--pop-cream)">CANLI</text>
+            <rect x="28" y="138" width="66" height="58" rx="14" fill="var(--pop-night)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="226" y="138" width="66" height="58" rx="14" fill="var(--pop-night)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="88" cy="102" r="24" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M66,102 Q66,70 104,78 L110,122 L64,122 Z" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="232" cy="104" r="24" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M210,102 Q228,68 256,88 L254,124 L210,120 Z" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="108" y="44" width="118" height="34" rx="16" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <text x="167" y="66" text-anchor="middle" font-weight="900" font-size="12" fill="var(--pop-ink)">NE DEDİN SEN?!</text>
+          ` : `
+            <rect x="18" y="16" width="88" height="30" rx="15" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <text x="62" y="36" text-anchor="middle" font-weight="900" font-size="12" fill="var(--pop-cream)">CANLI</text>
+            <rect x="28" y="138" width="66" height="58" rx="14" fill="var(--pop-night)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="226" y="138" width="66" height="58" rx="14" fill="var(--pop-night)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="118" cy="96" r="24" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="224" cy="110" r="24" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <polygon points="164,46 182,82 220,68 192,102 224,130 182,126 168,162 152,126 112,132 140,100 112,68 150,82" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <text x="166" y="110" text-anchor="middle" font-weight="900" font-size="22" fill="var(--pop-red)">PAF!</text>
+          `);
+
+        case `bocek`:
+          return wrap(`var(--pop-night)`, f === 0 ? `
+            <polygon points="160,0 40,215 120,215" fill="var(--pop-pink)" opacity="0.35"/>
+            <polygon points="160,0 200,215 280,215" fill="var(--pop-aqua)" opacity="0.35"/>
+            <circle cx="160" cy="22" r="18" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <g transform="translate(-14,0) rotate(-8 160 130)">
+              <ellipse cx="160" cy="134" rx="32" ry="48" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+              <circle cx="160" cy="82" r="21" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+              <circle cx="151" cy="79" r="5" fill="var(--pop-cream)"/><circle cx="169" cy="79" r="5" fill="var(--pop-cream)"/>
+              <path d="M128,120 Q94,98 86,116 M192,120 Q226,142 234,126" stroke="var(--pop-ink)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            </g>
+            <text x="58" y="96" font-size="26" fill="var(--pop-yellow)">♪</text>
+          ` : `
+            <polygon points="160,0 20,215 100,215" fill="var(--pop-aqua)" opacity="0.45"/>
+            <polygon points="160,0 220,215 300,215" fill="var(--pop-pink)" opacity="0.45"/>
+            <circle cx="160" cy="22" r="18" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <g transform="translate(14,0) rotate(8 160 130)">
+              <ellipse cx="160" cy="134" rx="32" ry="48" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+              <circle cx="160" cy="82" r="21" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+              <circle cx="151" cy="79" r="5" fill="var(--pop-cream)"/><circle cx="169" cy="79" r="5" fill="var(--pop-cream)"/>
+              <path d="M128,120 Q94,142 86,126 M192,120 Q226,98 234,116" stroke="var(--pop-ink)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            </g>
+            <text x="236" y="92" font-size="28" fill="var(--pop-pink)">♫</text>
+          `);
+
+        case `duygu`:
+          return wrap(`var(--pop-yellow)`, f === 0 ? `
+            <!-- Kitchen Tiles & Frying Pan with Sunny Side Up Egg -->
+            <rect x="0" y="0" width="320" height="215" fill="var(--pop-cream)" opacity="0.55"/>
+            <line x1="0" y1="70" x2="320" y2="70" stroke="var(--pop-gold)" stroke-width="1.5" opacity="0.35"/>
+            <line x1="0" y1="140" x2="320" y2="140" stroke="var(--pop-gold)" stroke-width="1.5" opacity="0.35"/>
+            <line x1="106" y1="0" x2="106" y2="215" stroke="var(--pop-gold)" stroke-width="1.5" opacity="0.35"/>
+            <line x1="214" y1="0" x2="214" y2="215" stroke="var(--pop-gold)" stroke-width="1.5" opacity="0.35"/>
+            <line x1="216" y1="148" x2="296" y2="194" stroke="var(--pop-ink)" stroke-width="15" stroke-linecap="round"/>
+            <circle cx="150" cy="112" r="70" fill="var(--pop-slate)" stroke="var(--pop-ink)" stroke-width="4"/>
+            <circle cx="150" cy="112" r="56" fill="var(--pop-night)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <path d="M114,110 Q108,80 144,80 Q176,74 186,104 Q194,134 160,142 Q122,144 114,110 Z" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="152" cy="110" r="20" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3"/>
+          ` : `
+            <rect x="0" y="0" width="320" height="215" fill="var(--pop-cream)" opacity="0.72"/>
+            <line x1="216" y1="148" x2="296" y2="194" stroke="var(--pop-ink)" stroke-width="15" stroke-linecap="round"/>
+            <circle cx="150" cy="112" r="70" fill="var(--pop-slate)" stroke="var(--pop-ink)" stroke-width="4"/>
+            <circle cx="150" cy="112" r="56" fill="var(--pop-night)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <path d="M114,110 Q108,80 144,80 Q176,74 186,104 Q194,134 160,142 Q122,144 114,110 Z" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="152" cy="110" r="21" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="86" y="14" width="148" height="30" rx="15" fill="var(--pop-pink)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <text x="160" y="34" text-anchor="middle" font-weight="900" font-size="13" fill="var(--pop-cream)">SUNNY SIDE UP! ☀️</text>
+          `);
+
+        case `enes`:
+          return wrap(`var(--pop-night)`, f === 0 ? `
+            <!-- RGB Studio Triangles & YouTube Play Plaque -->
+            <polygon points="18,194 74,44 130,194" fill="none" stroke="var(--pop-pink)" stroke-width="4.5"/>
+            <polygon points="190,194 246,44 302,194" fill="none" stroke="var(--pop-aqua)" stroke-width="4.5"/>
+            <rect x="234" y="20" width="58" height="40" rx="9" fill="var(--pop-red)" stroke="var(--pop-cream)" stroke-width="2.5"/>
+            <polygon points="257,31 257,49 273,40" fill="var(--pop-cream)"/>
+            <!-- Enes Batur Recognizable Portrait: Dark Brown Quiff Hair, Expressive Brows, Red-Black Hoodie, Studio Mic -->
+            <path d="M90,215 L108,142 L212,142 L230,215 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M134,142 L160,174 L186,142 Z" fill="var(--pop-night)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <rect x="148" y="124" width="24" height="24" rx="8" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <!-- Head & Jawline -->
+            <path d="M126,76 Q126,46 160,46 Q194,46 194,76 L191,108 Q191,132 160,135 Q129,132 129,108 Z" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <!-- Signature Textured Dark Quiff Hairstyle -->
+            <path d="M123,82 Q120,42 152,32 Q178,24 198,42 Q204,58 196,80 Q192,62 174,60 Q154,58 134,66 Q126,70 123,82 Z" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M144,44 Q164,34 184,46" fill="none" stroke="var(--pop-ink)" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Expressive Eyes, Brows & Confident Grin -->
+            <path d="M137,79 Q146,74 154,79" fill="none" stroke="var(--pop-ink)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M166,79 Q174,74 183,79" fill="none" stroke="var(--pop-ink)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="146" cy="87" r="4" fill="var(--pop-ink)"/>
+            <circle cx="174" cy="87" r="4" fill="var(--pop-ink)"/>
+            <path d="M146,110 Q160,122 174,110" fill="none" stroke="var(--pop-ink)" stroke-width="3.2" stroke-linecap="round"/>
+            <!-- Podcast / Studio Boom Mic -->
+            <line x1="68" y1="215" x2="104" y2="136" stroke="var(--pop-slate)" stroke-width="6" stroke-linecap="round"/>
+            <rect x="94" y="114" width="22" height="32" rx="11" fill="var(--pop-slate)" stroke="var(--pop-cream)" stroke-width="2.5"/>
+          ` : `
+            <!-- Frame 2: Dolunay Full Moon & Viral Reaction Pose -->
+            <polygon points="18,194 74,44 130,194" fill="none" stroke="var(--pop-aqua)" stroke-width="4.5"/>
+            <polygon points="190,194 246,44 302,194" fill="none" stroke="var(--pop-pink)" stroke-width="4.5"/>
+            <circle cx="66" cy="48" r="24" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="234" y="20" width="58" height="40" rx="9" fill="var(--pop-red)" stroke="var(--pop-yellow)" stroke-width="2.5"/>
+            <polygon points="257,31 257,49 273,40" fill="var(--pop-cream)"/>
+            <path d="M90,215 L108,142 L212,142 L230,215 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M134,142 L160,174 L186,142 Z" fill="var(--pop-night)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <rect x="148" y="124" width="24" height="24" rx="8" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M126,76 Q126,46 160,46 Q194,46 194,76 L191,108 Q191,132 160,135 Q129,132 129,108 Z" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M123,82 Q120,42 152,32 Q178,24 198,42 Q204,58 196,80 Q192,62 174,60 Q154,58 134,66 Q126,70 123,82 Z" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <!-- Hyped Reaction Expression -->
+            <path d="M136,75 Q146,68 154,76" fill="none" stroke="var(--pop-ink)" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M166,76 Q174,68 184,75" fill="none" stroke="var(--pop-ink)" stroke-width="3.2" stroke-linecap="round"/>
+            <circle cx="146" cy="86" r="4.5" fill="var(--pop-ink)"/>
+            <circle cx="174" cy="86" r="4.5" fill="var(--pop-ink)"/>
+            <ellipse cx="160" cy="113" rx="13" ry="10" fill="var(--pop-crimson)" stroke="var(--pop-ink)" stroke-width="2.8"/>
+            <rect x="198" y="138" width="84" height="28" rx="14" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <text x="240" y="156" text-anchor="middle" font-weight="900" font-size="11" fill="var(--pop-ink)">DOLUNAY! 🌕</text>
+          `);
+
+        case `enes`:
+          return wrap(`var(--pop-night)`, f === 0 ? `
+            <polygon points="24,188 94,36 164,188" fill="none" stroke="var(--pop-pink)" stroke-width="5"/>
+            <polygon points="156,188 226,36 296,188" fill="none" stroke="var(--pop-aqua)" stroke-width="5"/>
+            <rect x="104" y="58" width="112" height="150" rx="26" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M90,215 L114,144 L206,144 L230,215 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="102" r="33" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="144" cy="100" r="12" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="176" cy="100" r="12" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+          ` : `
+            <polygon points="24,188 94,36 164,188" fill="none" stroke="var(--pop-aqua)" stroke-width="5"/>
+            <polygon points="156,188 226,36 296,188" fill="none" stroke="var(--pop-pink)" stroke-width="5"/>
+            <rect x="104" y="58" width="112" height="150" rx="26" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M90,215 L114,144 L206,144 L230,215 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="102" r="33" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="144" cy="100" r="12" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="176" cy="100" r="12" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M144,118 Q160,136 176,118 Z" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <circle cx="66" cy="126" r="16" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3"/>
+          `);
+
+        case `aykut`:
+          return wrap(`var(--pop-aqua)`, f === 0 ? `
+            <rect x="86" y="12" width="148" height="190" rx="22" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="4"/>
+            <rect x="98" y="26" width="124" height="154" rx="10" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <circle cx="160" cy="98" r="32" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="148" cy="94" r="6" fill="var(--pop-ink)"/><circle cx="172" cy="94" r="6" fill="var(--pop-ink)"/>
+            <text x="160" y="195" text-anchor="middle" font-weight="900" font-size="11" fill="var(--pop-ink)">00:02 / 00:07</text>
+          ` : `
+            <rect x="86" y="12" width="148" height="190" rx="22" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="4"/>
+            <rect x="98" y="26" width="124" height="154" rx="10" fill="var(--pop-pink)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <circle cx="160" cy="98" r="42" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="144" cy="92" r="11" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <circle cx="176" cy="92" r="11" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <circle cx="144" cy="92" r="4" fill="var(--pop-ink)"/><circle cx="176" cy="92" r="4" fill="var(--pop-ink)"/>
+            <ellipse cx="160" cy="118" rx="12" ry="10" fill="var(--pop-ink)"/>
+            <text x="160" y="195" text-anchor="middle" font-weight="900" font-size="11" fill="var(--pop-red)">00:07 / 00:07</text>
+          `);
+
+        case `bjork`:
+          return wrap(`var(--pop-pink)`, f === 0 ? `
+            <polygon points="0,156 320,156 320,215 0,215" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <ellipse cx="160" cy="144" rx="74" ry="24" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M138,134 Q112,78 154,48 Q176,34 190,48 Q198,58 180,68 Q160,78 176,134 Z" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <polygon points="186,46 210,52 188,60" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <circle cx="144" cy="48" r="19" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+          ` : `
+            <polygon points="0,156 320,156 320,215 0,215" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <ellipse cx="160" cy="144" rx="76" ry="24" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M138,134 Q112,78 154,48 Q176,34 190,48 Q198,58 180,68 Q160,78 176,134 Z" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <polygon points="186,46 210,52 188,60" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <circle cx="144" cy="48" r="19" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <ellipse cx="76" cy="174" rx="18" ry="24" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <ellipse cx="244" cy="178" rx="18" ry="24" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+          `);
+
+        case `beatles`:
+          return wrap(`var(--pop-aqua)`, f === 0 ? `
+            <rect x="0" y="0" width="320" height="114" fill="var(--pop-emerald)" opacity="0.45"/>
+            <rect x="0" y="114" width="320" height="101" fill="var(--pop-slate)"/>
+            <polygon points="36,144 284,144 300,160 20,160" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <polygon points="14,174 306,174 316,192 4,192" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <g stroke="var(--pop-ink)" stroke-width="3" stroke-linecap="round" transform="translate(-14,0)">
+              <rect x="48" y="82" width="22" height="50" rx="8" fill="var(--pop-cream)"/><circle cx="59" cy="66" r="11" fill="var(--pop-skin)"/>
+              <rect x="114" y="82" width="22" height="50" rx="8" fill="var(--pop-night)"/><circle cx="125" cy="66" r="11" fill="var(--pop-skin)"/>
+              <rect x="180" y="82" width="22" height="50" rx="8" fill="var(--pop-silver)"/><circle cx="191" cy="66" r="11" fill="var(--pop-skin)"/>
+              <rect x="246" y="82" width="22" height="50" rx="8" fill="var(--pop-pool)"/><circle cx="257" cy="66" r="11" fill="var(--pop-skin)"/>
+            </g>
+          ` : `
+            <rect x="0" y="0" width="320" height="114" fill="var(--pop-emerald)" opacity="0.45"/>
+            <rect x="0" y="114" width="320" height="101" fill="var(--pop-slate)"/>
+            <polygon points="36,144 284,144 300,160 20,160" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <polygon points="14,174 306,174 316,192 4,192" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <g stroke="var(--pop-ink)" stroke-width="3" stroke-linecap="round" transform="translate(14,0)">
+              <rect x="48" y="82" width="22" height="50" rx="8" fill="var(--pop-cream)"/><circle cx="59" cy="66" r="11" fill="var(--pop-skin)"/>
+              <line x1="54" y1="132" x2="40" y2="166" stroke-width="6"/><line x1="64" y1="132" x2="76" y2="166" stroke-width="6"/>
+              <rect x="114" y="82" width="22" height="50" rx="8" fill="var(--pop-night)"/><circle cx="125" cy="66" r="11" fill="var(--pop-skin)"/>
+              <line x1="120" y1="132" x2="106" y2="166" stroke-width="6"/><line x1="130" y1="132" x2="142" y2="166" stroke-width="6"/>
+              <rect x="180" y="82" width="22" height="50" rx="8" fill="var(--pop-silver)"/><circle cx="191" cy="66" r="11" fill="var(--pop-skin)"/>
+              <line x1="186" y1="132" x2="172" y2="166" stroke-width="6"/><line x1="196" y1="132" x2="208" y2="166" stroke-width="6"/>
+              <rect x="246" y="82" width="22" height="50" rx="8" fill="var(--pop-pool)"/><circle cx="257" cy="66" r="11" fill="var(--pop-skin)"/>
+              <line x1="252" y1="132" x2="238" y2="166" stroke-width="6"/><line x1="262" y1="132" x2="274" y2="166" stroke-width="6"/>
+            </g>
+          `);
+
+        case `britney`:
+          return wrap(`var(--pop-forest)`, f === 0 ? `
+            <!-- Tropical Jungle Leaves & VMA Spotlights -->
+            <ellipse cx="42" cy="36" rx="54" ry="22" transform="rotate(-24 42 36)" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <ellipse cx="278" cy="36" rx="54" ry="22" transform="rotate(24 278 36)" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <ellipse cx="26" cy="168" rx="46" ry="18" transform="rotate(18 26 168)" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <ellipse cx="294" cy="168" rx="46" ry="18" transform="rotate(-18 294 168)" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <!-- Britney's Blonde Waves, Green Jeweled Top & Belly Chain -->
+            <path d="M108,56 Q160,20 212,56 L228,158 L92,158 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="68" r="26" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="151" cy="66" r="3.2" fill="var(--pop-ink)"/><circle cx="169" cy="66" r="3.2" fill="var(--pop-ink)"/>
+            <path d="M151,78 Q160,85 169,78" fill="none" stroke="var(--pop-pink)" stroke-width="3" stroke-linecap="round"/>
+            <!-- Torso & Green Crop Top -->
+            <path d="M132,96 L188,96 L194,168 L126,168 Z" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M130,104 L190,104 L186,128 L134,128 Z" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M126,166 L194,166 L202,212 L118,212 Z" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <!-- Giant Yellow Burmese Python Draped Over Shoulders -->
+            <path d="M84,148 Q84,84 160,96 Q236,108 242,156 Q246,188 202,194" fill="none" stroke="var(--pop-ink)" stroke-width="26" stroke-linecap="round"/>
+            <path d="M84,148 Q84,84 160,96 Q236,108 242,156 Q246,188 202,194" fill="none" stroke="var(--pop-yellow)" stroke-width="19" stroke-linecap="round"/>
+            <circle cx="116" cy="104" r="4" fill="var(--pop-gold)"/><circle cx="160" cy="96" r="4.5" fill="var(--pop-gold)"/><circle cx="206" cy="112" r="4" fill="var(--pop-gold)"/>
+            <ellipse cx="198" cy="194" rx="13" ry="9" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <path d="M185,195 L173,192 M185,195 L174,200" stroke="var(--pop-red)" stroke-width="2.5" stroke-linecap="round"/>
+          ` : `
+            <ellipse cx="42" cy="36" rx="54" ry="22" transform="rotate(-24 42 36)" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <ellipse cx="278" cy="36" rx="54" ry="22" transform="rotate(24 278 36)" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M108,56 Q160,20 212,56 L228,158 L92,158 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="68" r="26" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="151" cy="66" r="3.2" fill="var(--pop-ink)"/><circle cx="169" cy="66" r="3.2" fill="var(--pop-ink)"/>
+            <path d="M150,78 Q160,87 170,78" fill="none" stroke="var(--pop-red)" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M132,96 L188,96 L194,168 L126,168 Z" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M130,104 L190,104 L186,128 L134,128 Z" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M126,166 L194,166 L202,212 L118,212 Z" fill="var(--pop-emerald)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M78,154 Q82,82 160,96 Q238,110 246,154 Q250,186 210,192" fill="none" stroke="var(--pop-ink)" stroke-width="26" stroke-linecap="round"/>
+            <path d="M78,154 Q82,82 160,96 Q238,110 246,154 Q250,186 210,192" fill="none" stroke="var(--pop-yellow)" stroke-width="19" stroke-linecap="round"/>
+            <circle cx="116" cy="104" r="4" fill="var(--pop-gold)"/><circle cx="160" cy="96" r="4.5" fill="var(--pop-gold)"/><circle cx="206" cy="112" r="4" fill="var(--pop-gold)"/>
+            <ellipse cx="206" cy="192" rx="13" ry="9" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <path d="M193,193 L180,189 M193,193 L181,198" stroke="var(--pop-red)" stroke-width="2.5" stroke-linecap="round"/>
+          `);
+
+        case `beyonce`:
+          return wrap(`var(--pop-night)`, f === 0 ? `
+            <polygon points="160,22 20,206 300,206" fill="var(--pop-gold)" opacity="0.28" stroke="var(--pop-yellow)" stroke-width="3"/>
+            <path d="M104,212 L124,124 L196,124 L216,212 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="90" r="23" fill="var(--pop-skin-deep)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M138,78 L132,34 L188,34 L182,78 Z" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3"/>
+          ` : `
+            <polygon points="160,22 20,206 300,206" fill="var(--pop-gold)" opacity="0.45" stroke="var(--pop-yellow)" stroke-width="4"/>
+            <path d="M104,212 L124,124 L196,124 L216,212 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="90" r="23" fill="var(--pop-skin-deep)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M138,78 L132,34 L188,34 L182,78 Z" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="58" cy="54" r="16" fill="var(--pop-yellow)"/><circle cx="262" cy="54" r="16" fill="var(--pop-yellow)"/>
+            <path d="M84,142 L116,126 M236,142 L204,126" stroke="var(--pop-skin-deep)" stroke-width="10" stroke-linecap="round"/>
+          `);
+
+        case `willsmith`:
+          return wrap(`var(--pop-crimson)`, f === 0 ? `
+            <rect x="0" y="0" width="320" height="215" fill="var(--pop-night)"/>
+            <rect x="64" y="124" width="44" height="84" rx="12" fill="var(--pop-slate)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="86" cy="98" r="22" fill="var(--pop-skin-deep)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="210" y="124" width="44" height="84" rx="12" fill="var(--pop-slate)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="232" cy="98" r="22" fill="var(--pop-skin-deep)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M116,102 L182,102" stroke="var(--pop-yellow)" stroke-width="4" stroke-dasharray="8 6"/>
+          ` : `
+            <rect x="0" y="0" width="320" height="215" fill="var(--pop-night)"/>
+            <rect x="112" y="124" width="44" height="84" rx="12" fill="var(--pop-slate)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="134" cy="98" r="22" fill="var(--pop-skin-deep)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="210" y="124" width="44" height="84" rx="12" fill="var(--pop-slate)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="232" cy="98" r="22" fill="var(--pop-skin-deep)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <polygon points="178,56 196,86 228,74 204,106 232,132 194,128 178,162 164,128 128,132 154,104 130,74 164,86" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <text x="179" y="114" text-anchor="middle" font-weight="900" font-size="18" fill="var(--pop-red)">ŞOK!</text>
+          `);
+
+        case `gaga-meat`:
+          return wrap(`var(--pop-aqua)`, f === 0 ? `
+            <path d="M126,88 L194,88 L232,212 L88,212 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M132,120 Q160,112 188,124 M114,156 Q158,146 204,160" stroke="var(--pop-cream)" stroke-width="7" stroke-linecap="round" fill="none"/>
+            <path d="M120,58 Q160,24 200,58 L208,100 L112,100 Z" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="160" cy="64" r="21" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <ellipse cx="164" cy="36" rx="19" ry="10" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+          ` : `
+            <polygon points="44,32 52,52 72,58 52,64 44,84 36,64 16,58 36,52" fill="var(--pop-cream)"/>
+            <polygon points="274,36 280,50 294,54 280,58 274,72 268,58 254,54 268,50" fill="var(--pop-cream)"/>
+            <path d="M120,88 L200,88 L244,212 L76,212 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M132,120 Q160,112 188,124 M114,156 Q158,146 204,160 M104,190 Q160,178 216,196" stroke="var(--pop-cream)" stroke-width="7" stroke-linecap="round" fill="none"/>
+            <path d="M120,58 Q160,24 200,58 L208,100 L112,100 Z" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="160" cy="64" r="21" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <ellipse cx="164" cy="36" rx="19" ry="10" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+          `);
+
+        case `rihanna-met`:
+          return wrap(`var(--pop-cream)`, f === 0 ? `
+            <line x1="20" y1="84" x2="300" y2="84" stroke="var(--pop-slate)" stroke-width="2"/>
+            <line x1="20" y1="120" x2="300" y2="120" stroke="var(--pop-slate)" stroke-width="2"/>
+            <line x1="20" y1="156" x2="300" y2="156" stroke="var(--pop-slate)" stroke-width="2"/>
+            <path d="M150,68 Q210,112 246,208 L68,208 Q106,120 150,68 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <ellipse cx="150" cy="74" rx="32" ry="13" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="150" cy="48" r="17" fill="var(--pop-skin-warm)" stroke="var(--pop-ink)" stroke-width="3"/>
+          ` : `
+            <line x1="20" y1="84" x2="300" y2="84" stroke="var(--pop-slate)" stroke-width="2"/>
+            <line x1="20" y1="120" x2="300" y2="120" stroke="var(--pop-slate)" stroke-width="2"/>
+            <line x1="20" y1="156" x2="300" y2="156" stroke="var(--pop-slate)" stroke-width="2"/>
+            <path d="M150,68 Q250,112 302,212 L22,212 Q84,120 150,68 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="158" cy="158" r="14" fill="none" stroke="var(--pop-gold)" stroke-width="4"/>
+            <circle cx="108" cy="186" r="13" fill="none" stroke="var(--pop-gold)" stroke-width="4"/>
+            <circle cx="218" cy="186" r="14" fill="none" stroke="var(--pop-gold)" stroke-width="4"/>
+            <ellipse cx="150" cy="74" rx="34" ry="14" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="150" cy="48" r="17" fill="var(--pop-skin-warm)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M132,38 L150,18 L168,38 Z" fill="var(--pop-gold)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+          `);
+
+        case `coldplay-ceo`:
+          return wrap(`var(--pop-night)`, f === 0 ? `
+            <rect x="44" y="16" width="232" height="140" rx="18" fill="var(--pop-pink)" stroke="var(--pop-ink)" stroke-width="4"/>
+            <rect x="58" y="30" width="204" height="112" rx="12" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <text x="160" y="48" text-anchor="middle" font-weight="900" font-size="13" fill="var(--pop-red)">♥ KISS CAM ♥</text>
+            <circle cx="126" cy="96" r="20" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="194" cy="96" r="20" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="118" cy="94" r="3" fill="var(--pop-ink)"/><circle cx="134" cy="94" r="3" fill="var(--pop-ink)"/>
+            <circle cx="186" cy="94" r="3" fill="var(--pop-ink)"/><circle cx="202" cy="94" r="3" fill="var(--pop-ink)"/>
+          ` : `
+            <rect x="44" y="16" width="232" height="140" rx="18" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="4"/>
+            <rect x="58" y="30" width="204" height="112" rx="12" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <text x="160" y="48" text-anchor="middle" font-weight="900" font-size="13" fill="var(--pop-red)">📸 YAKALANDILAR!</text>
+            <circle cx="112" cy="108" r="20" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="98" y="96" width="28" height="24" rx="6" fill="var(--pop-skin-warm)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <circle cx="208" cy="108" r="20" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="194" y="96" width="28" height="24" rx="6" fill="var(--pop-skin-warm)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+          `);
+
+        case `gaga-4layer`:
+          return wrap(`var(--pop-pink)`, f === 0 ? `
+            <path d="M28,210 L68,84 L252,84 L292,210 Z" fill="var(--pop-pink)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="58" r="23" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M134,48 Q160,16 186,48" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="226" y="30" width="66" height="30" rx="15" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <text x="259" y="50" text-anchor="middle" font-weight="900" font-size="13" fill="var(--pop-ink)">KAT 1</text>
+          ` : `
+            <path d="M38,210 L76,84 L244,84 L282,210 Z" fill="var(--pop-pink)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M74,210 L100,106 L220,106 L246,210 Z" fill="var(--pop-night)" stroke="var(--pop-cream)" stroke-width="3"/>
+            <path d="M108,210 L124,128 L196,128 L212,210 Z" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="160" cy="58" r="23" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <rect x="226" y="30" width="66" height="30" rx="15" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <text x="259" y="50" text-anchor="middle" font-weight="900" font-size="13" fill="var(--pop-ink)">4 KAT!</text>
+          `);
+
+        case `katy-chandelier`:
+          return wrap(`var(--pop-night)`, f === 0 ? `
+            <ellipse cx="160" cy="48" rx="70" ry="15" fill="none" stroke="var(--pop-gold)" stroke-width="5"/>
+            <ellipse cx="160" cy="118" rx="90" ry="18" fill="none" stroke="var(--pop-gold)" stroke-width="5"/>
+            <path d="M126,112 L194,112 L214,210 L106,210 Z" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="80" r="21" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+          ` : `
+            <ellipse cx="160" cy="48" rx="72" ry="16" fill="none" stroke="var(--pop-yellow)" stroke-width="6"/>
+            <ellipse cx="160" cy="118" rx="92" ry="20" fill="none" stroke="var(--pop-yellow)" stroke-width="6"/>
+            <circle cx="88" cy="22" r="9" fill="var(--pop-yellow)"/><circle cx="232" cy="22" r="9" fill="var(--pop-yellow)"/>
+            <circle cx="68" cy="90" r="9" fill="var(--pop-yellow)"/><circle cx="252" cy="90" r="9" fill="var(--pop-yellow)"/>
+            <path d="M126,112 L194,112 L214,210 L106,210 Z" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <circle cx="160" cy="80" r="21" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+          `);
+
+        case `sertab`:
+          return wrap(`var(--pop-night)`, f === 0 ? `
+            <rect x="82" y="16" width="156" height="38" rx="19" fill="var(--pop-red)" stroke="var(--pop-cream)" stroke-width="3"/>
+            <text x="160" y="40" text-anchor="middle" font-weight="900" font-size="17" fill="var(--pop-cream)">04 TURKEY</text>
+            <path d="M130,210 L144,108 L176,108 L190,210 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="160" cy="84" r="19" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+          ` : `
+            <polygon points="160,0 40,215 280,215" fill="var(--pop-aqua)" opacity="0.32"/>
+            <rect x="82" y="16" width="156" height="38" rx="19" fill="var(--pop-red)" stroke="var(--pop-yellow)" stroke-width="3"/>
+            <text x="160" y="40" text-anchor="middle" font-weight="900" font-size="17" fill="var(--pop-yellow)">★ 167 PUAN ★</text>
+            <path d="M36,158 Q106,108 160,144 Q214,180 284,130" fill="none" stroke="var(--pop-red)" stroke-width="14" stroke-linecap="round"/>
+            <path d="M48,176 Q116,128 160,160 Q208,192 276,152" fill="none" stroke="var(--pop-cream)" stroke-width="9" stroke-linecap="round"/>
+            <path d="M130,210 L144,108 L176,108 L190,210 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="160" cy="84" r="19" fill="var(--pop-skin)" stroke="var(--pop-ink)" stroke-width="3"/>
+          `);
+
+        case `hadise`:
+          return wrap(`var(--pop-crimson)`, f === 0 ? `
+            <circle cx="160" cy="110" r="82" fill="none" stroke="var(--pop-gold)" stroke-width="4" stroke-dasharray="12 10"/>
+            <path d="M108,70 Q90,128 106,164 L214,164 Q230,128 212,70 Q160,32 108,70 Z" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M132,118 L188,118 L178,142 L142,142 Z" fill="var(--pop-red)" stroke="var(--pop-gold)" stroke-width="3"/>
+            <path d="M126,162 L194,162 L212,212 L108,212 Z" fill="var(--pop-red)" stroke="var(--pop-gold)" stroke-width="3"/>
+            <circle cx="160" cy="82" r="23" fill="var(--pop-skin-warm)" stroke="var(--pop-ink)" stroke-width="3"/>
+          ` : `
+            <circle cx="160" cy="110" r="94" fill="none" stroke="var(--pop-yellow)" stroke-width="5"/>
+            <circle cx="160" cy="110" r="68" fill="none" stroke="var(--pop-pink)" stroke-width="5"/>
+            <path d="M108,70 Q90,128 106,164 L214,164 Q230,128 212,70 Q160,32 108,70 Z" fill="var(--pop-brown)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <path d="M132,118 L188,118 L178,142 L142,142 Z" fill="var(--pop-red)" stroke="var(--pop-gold)" stroke-width="3"/>
+            <path d="M126,162 L194,162 L212,212 L108,212 Z" fill="var(--pop-red)" stroke="var(--pop-gold)" stroke-width="3"/>
+            <circle cx="160" cy="82" r="23" fill="var(--pop-skin-warm)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <text x="58" y="64" font-weight="900" font-size="16" fill="var(--pop-yellow)">DÜM</text>
+            <text x="232" y="64" font-weight="900" font-size="16" fill="var(--pop-yellow)">TEK!</text>
+          `);
+
+        case `manga`:
+          return wrap(`var(--pop-night)`, f === 0 ? `
+            <rect x="116" y="70" width="88" height="108" rx="18" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <rect x="132" y="30" width="56" height="42" rx="14" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <rect x="142" y="46" width="36" height="9" rx="4" fill="var(--pop-aqua)"/>
+            <polygon points="94,158 228,104 240,122 108,178" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+          ` : `
+            <polygon points="32,208 54,104 76,208" fill="var(--pop-gold)" opacity="0.85"/>
+            <polygon points="244,208 266,104 288,208" fill="var(--pop-gold)" opacity="0.85"/>
+            <rect x="116" y="70" width="88" height="108" rx="18" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <rect x="132" y="30" width="56" height="42" rx="14" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <rect x="142" y="46" width="36" height="9" rx="4" fill="var(--pop-pink)"/>
+            <polygon points="94,158 228,104 240,122 108,178" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <circle cx="160" cy="136" r="15" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+          `);
+
+        case `mj-thriller`:
+          return wrap(`var(--pop-night)`, f === 0 ? `
+            <circle cx="250" cy="48" r="32" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M90,212 L112,110 L208,110 L230,212 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+            <polygon points="116,114 160,180 204,114 188,114 160,156 132,114" fill="var(--pop-ink)"/>
+            <circle cx="160" cy="78" r="23" fill="var(--pop-skin-warm)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <path d="M132,70 Q160,40 188,70 Q194,88 184,96 L136,96 Q126,88 132,70 Z" fill="var(--pop-ink)"/>
+          ` : `
+            <circle cx="250" cy="48" r="34" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="3"/>
+            <g transform="translate(8,0) skewX(-6)">
+              <path d="M90,212 L112,110 L208,110 L230,212 Z" fill="var(--pop-red)" stroke="var(--pop-ink)" stroke-width="3.5"/>
+              <polygon points="116,114 160,180 204,114 188,114 160,156 132,114" fill="var(--pop-ink)"/>
+              <circle cx="160" cy="78" r="23" fill="var(--pop-skin-warm)" stroke="var(--pop-ink)" stroke-width="3"/>
+              <circle cx="94" cy="148" r="15" fill="var(--pop-cream)" stroke="var(--pop-ink)" stroke-width="3"/>
+            </g>
+          `);
+
+        case `abba`:
+        default:
+          return wrap(`var(--pop-aqua)`, f === 0 ? `
+            <g stroke="var(--pop-ink)" stroke-width="3">
+              <rect x="46" y="100" width="44" height="90" rx="14" fill="var(--pop-pink)"/><circle cx="68" cy="76" r="17" fill="var(--pop-skin)"/>
+              <rect x="106" y="94" width="44" height="96" rx="14" fill="var(--pop-cream)"/><circle cx="128" cy="70" r="17" fill="var(--pop-skin)"/>
+              <rect x="166" y="94" width="44" height="96" rx="14" fill="var(--pop-yellow)"/><circle cx="188" cy="70" r="17" fill="var(--pop-skin)"/>
+              <rect x="226" y="100" width="44" height="90" rx="14" fill="var(--pop-silver)"/><circle cx="248" cy="76" r="17" fill="var(--pop-skin)"/>
+            </g>
+          ` : `
+            <polygon points="64,30 70,46 86,48 72,58 76,74 64,64 52,74 56,58 42,48 58,46" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="2"/>
+            <polygon points="256,30 262,46 278,48 264,58 268,74 256,64 244,74 248,58 234,48 250,46" fill="var(--pop-yellow)" stroke="var(--pop-ink)" stroke-width="2"/>
+            <g stroke="var(--pop-ink)" stroke-width="3">
+              <rect x="46" y="100" width="44" height="90" rx="14" fill="var(--pop-pink)"/><circle cx="68" cy="76" r="17" fill="var(--pop-skin)"/>
+              <rect x="106" y="94" width="44" height="96" rx="14" fill="var(--pop-cream)"/><circle cx="128" cy="70" r="17" fill="var(--pop-skin)"/>
+              <rect x="166" y="94" width="44" height="96" rx="14" fill="var(--pop-yellow)"/><circle cx="188" cy="70" r="17" fill="var(--pop-skin)"/>
+              <rect x="226" y="100" width="44" height="90" rx="14" fill="var(--pop-silver)"/><circle cx="248" cy="76" r="17" fill="var(--pop-skin)"/>
+            </g>
+            <rect x="110" y="186" width="36" height="20" rx="6" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+            <rect x="170" y="186" width="36" height="20" rx="6" fill="var(--pop-silver)" stroke="var(--pop-ink)" stroke-width="2.5"/>
+          `);
+      }
+    }
+
+    /* =========================================================================
+       2. CATEGORIES (7 Categories)
+       ========================================================================= */
+    const CATEGORIES = [
+      { id: `eurovision`, name: `Eurovision`, icon: `🏆` },
+      { id: `muzik-efsaneleri`, name: `Müzik Efsaneleri`, icon: `🎸` },
+      { id: `met-gala`, name: `Met Gala`, icon: `👗` },
+      { id: `odul-geceleri`, name: `Ödül Geceleri`, icon: `🌟` },
+      { id: `tr-dizi`, name: `TR Dizi Efsaneleri`, icon: `🎬` },
+      { id: `tr-tv`, name: `TR TV Efsaneleri`, icon: `📺` },
+      { id: `tr-sosyal`, name: `TR Sosyal Medya Trendleri`, icon: `📱` }
+    ];
+
+    /* =========================================================================
+       3. ENRICHED CARDS DATA (Crisp max 2-sentence clues that NEVER cut off!)
+       ========================================================================= */
+    const CARDS_DATA = [
+      // --- TR Dizi Efsaneleri ---
+      {
+        id: `behlul`,
+        categoryId: `tr-dizi`,
+        rarity: `Efsanevi`,
+        era: `2008 – 2010 • Sarıyer Ziyagil Yalısı / Kanal D`,
+        clue: `Boğaz'a nazır yalının havuz kenarında gerilen sarı saçlı karakter kendini sulara bırakıyor. Yasak aşk fırtınasının fitili bu atlayışla ateşleniyor.`,
+        answer: `Behlül - Aşk-ı Memnu Yalı Havuzu (2008)`,
+        distractors: [
+          `Kuzey Tekinoğlu - Kuzey Güney Fırın Çıkışı (2011)`,
+          `Emir Sarrafoğlu - Adını Feriha Koydum Gece Kulübü (2011)`,
+          `Polat Alemdar - Kurtlar Vadisi Konsey Baskını (2003)`
+        ],
+        story: `Halid Ziya Uşaklıgil'in romanından uyarlanan ve 2008-2010 yıllarında yayınlanan Aşk-ı Memnu'da Kıvanç Tatlıtuğ'un canlandırdığı Behlül Haznedar, Bihter'e duyduğu yasak tutkudan kaçmak için kendini Ziyagil Yalısı'nın havuzuna atar. Sahne, Boğaz manzarası ve abartılı atlayış koreografisiyle Türk dizi tarihinin en çok taklit edilen görsel imzası oldu.`,
+        trivia: `✨ Kült Not: Dizinin final bölümü Türkiye'de %73,7 izlenme payına ulaşarak kırılması güç bir reyting rekoru kırdı.`
+      },
+      {
+        id: `hurrem`,
+        categoryId: `tr-dizi`,
+        rarity: `Efsanevi`,
+        era: `2011 – 2014 • Topkapı Sarayı / Tarihi Drama`,
+        clue: `Kızıl saçları ve zümrüt tacıyla saray koridorunda yankılanan iki heceli haykırışı savuruyor. Saray entrikalarının ortasındaki bu çıkış hafızalara kazındı.`,
+        answer: `Hürrem Sultan - Muhteşem Yüzyıl Saray Çıkışı (2011)`,
+        distractors: [
+          `Kösem Sultan - Topkapı Taht Yürüyüşü (2015)`,
+          `Bihter Ziyagil - Aşk-ı Memnu Yalı Yüzleşmesi (2010)`,
+          `Firdevs Yöreoğlu - Boğaz Yalısı Entrikası (2009)`
+        ],
+        story: `Meryem Uzerli'nin hayat verdiği Hürrem Sultan'ın Almanca aksanıyla harmanladığı kendine özgü "Sülüman!" vurgusu, 2011'de yayınlandığı andan itibaren milyonların diline pelesenk oldu. Zümrüt yüzüğü ve kırmızı kaftanıyla birleşen bu çıkış, 50'den fazla ülkede izlenen küresel bir ikona dönüştü.`,
+        trivia: `✨ Kült Not: Hürrem'in taktığı damla zümrüt yüzük, yayınlandığı yıl Türkiye'de kuyumcularda en çok sipariş edilen model oldu.`
+      },
+      {
+        id: `selena`,
+        categoryId: `tr-dizi`,
+        rarity: `Nostaljik`,
+        era: `2006 – 2009 • İstanbul / Fantastik Komedi`,
+        clue: `Üç kız kardeş parmaklarını birleştirip sihirli bir üçgen kuruyor. Gökyüzünden pelerinli kurtarıcılarını çağırdıkları bu ritüel bir kuşağın ezberi oldu.`,
+        answer: `Selin, Leyla & Nazlı - Selena Üçgen Çağrısı (2006)`,
+        distractors: [
+          `Betüş & Çilek - Sihirli Annem Salon Büyüsü (2003)`,
+          `Nana & Yağmur - Bez Bebek Oyuncak Odası (2007)`,
+          `Ayşegül - Acemi Cadı Okul Bahçesi (2006)`
+        ],
+        story: `Sinem Kobal'ın başrolünde yer aldığı Selena dizisinde Selin, Leyla ve Nazlı kardeşler başları her sıkıştığında parmaklarını birleştirerek eşkenar bir üçgen oluşturur ve üç kez "Selena" diye seslenirdi. Bu görsel el işareti, 2000'lerin sonunda ilkokul bahçelerinin ortak parolası haline geldi.`,
+        trivia: `✨ Kült Not: Dizide iyilik ve kötülük gezegeni Ütopya'daki Yüce Honos karakteri de en az üçgen çağrısı kadar kültleşti.`
+      },
+      {
+        id: `yaprak`,
+        categoryId: `tr-dizi`,
+        rarity: `Nostaljik`,
+        era: `2006 – 2010 • Beylerbeyi Köşkü / Aile Draması`,
+        clue: `Evin babası salon koltuğunda kötü haberle elini alnına götürüyor. "Ağzımızın tadı kaçmasın" uyarısının boşa çıktığı o an ekrana yansıyor.`,
+        answer: `Ali Rıza Bey - Yaprak Dökümü Köşk Salonu (2006)`,
+        distractors: [
+          `Rıza Baba - Arka Sokaklar Emniyet Toplantısı (2006)`,
+          `Ramiz Karaeski - Ezel İstanbul Çay Bahçesi (2009)`,
+          `Tahir Kaleli - Sen Anlat Karadeniz Yaylası (2018)`
+        ],
+        story: `Reşat Nuri Güntekin'in ölümsüz eserinden uyarlanan Yaprak Dökümü'nde Halil Ergün'ün canlandırdığı Ali Rıza Tekin'in her aile krizinde koltuğa çöküp elini alnına koyması, Türk televizyonunda dramatik çaresizliğin görsel simgesi oldu.`,
+        trivia: `✨ Kült Not: Dizinin çekildiği Beylerbeyi'ndeki tarihi ahşap köşk, finalden yıllar sonra bile ziyaretçi akınına uğradı.`
+      },
+      {
+        id: `sahika`,
+        categoryId: `tr-dizi`,
+        rarity: `Nadir`,
+        era: `2004 – 2009 • Nişantaşı Dergi Ofisi / Sitcom`,
+        clue: `Dev siyah gözlüğü, kürkü ve minik süs köpeğiyle dergi ofisine giriyor. Gözlüğünü hafifçe indirip o meşhur küçümseyen bakışını atıyor.`,
+        answer: `Şahika Koçarslanlı - Avrupa Yakası Nişantaşı (2007)`,
+        distractors: [
+          `Burhan Altıntop - Avrupa Yakası Dergi Ofisi (2006)`,
+          `Vasfiye Teyze - Yalan Dünya Cihangir (2012)`,
+          `Fatoş Akın - Avrupa Yakası Moda Çekimi (2005)`
+        ],
+        story: `Gülse Birsel'in kaleme aldığı Avrupa Yakası'na katıldığı anda dengeleri değiştiren Binnur Kaya imzalı Şahika Koçarslanlı; abartılı Nişantaşı şımarıklığı, köpeği ve "Çüş!" tepkileriyle Türk durum komedisinin en keskin karakter portresidir.`,
+        trivia: `✨ Kült Not: Şahika'nın Burhan Altıntop ile girdiği Nişantaşı-Tokat atışmaları sitcom tarihinin en yüksek tempolu diyalogları arasındadır.`
+      },
+
+      // --- TR TV Efsaneleri ---
+      {
+        id: `sevda`,
+        categoryId: `tr-tv`,
+        rarity: `Efsanevi`,
+        era: `2002 • İstanbul Canlı Yayın Stüdyosu`,
+        clue: `Canlı yayında koltuğundan ok gibi fırlayan şarkıcı "Ne dedin sen?!" diye soruyor. Hemen ardından televizyon tarihinin en ünlü tokatı patlıyor.`,
+        answer: `Sevda Demirel & Hande Ataizi - İki Kere Kiki Stüdyosu (2002)`,
+        distractors: [
+          `Yıldız Tilbe & İbrahim Tatlıses - İbo Show Stüdyosu (2009)`,
+          `Bülent Ersoy - Popstar Alaturka Canlı Yayını (2007)`,
+          `Seda Sayan - Sabahların Sultanı Stüdyosu (2005)`
+        ],
+        story: `2002 yılında Cem Davran ve Hande Ataizi'nin sunduğu "İki Kere Kiki" programında canlı yayın sırasında tırmanan gerilim, Sevda Demirel'in koltuğundan kalkıp "Ne dedin sen?!" diyerek attığı tokatla Türk televizyon tarihinin en şok edici canlı yayın anına dönüştü.`,
+        trivia: `✨ Kült Not: Sosyal medya henüz yokken bile ertesi gün tüm gazete manşetlerine taşınan bu sahne, yıllar sonra internet meme kültürünün temel taşı oldu.`
+      },
+
+      // --- TR Sosyal Medya Trendleri ---
+      {
+        id: `bocek`,
+        categoryId: `tr-sosyal`,
+        rarity: `Nostaljik`,
+        era: `2019 – 2020 • Sosyal Medya & Dijital Akım`,
+        clue: `Disko ışıkları altında iki ayağı üstüne kalkmış animasyon bir böcek dans ediyor. Türkçe "lülülülülü" dublajıyla birleşen video tüm interneti sardı.`,
+        answer: `Dans Eden Hamamböceği - "Lülülülülü" Akımı (2020)`,
+        distractors: [
+          `Konuşan Tekir Kedi - Miyav Remix Videosu (2019)`,
+          `Kırmızı Kamyon - Dublaj Akımı (2018)`,
+          `Dans Eden Kurbağa - Disko GIF Trendi (2020)`
+        ],
+        story: `2019 sonunda küresel forumlarda doğan 3D "Dancing Roach" GIF'i, Türkiye'de eklenen eğlenceli Türkçe dublajla bambaşka bir kimliğe büründü ve 2020 boyunca binlerce kullanıcının hareketli profil fotoğrafı oldu.`,
+        trivia: `✨ Kült Not: Akım öylesine yayıldı ki aynı dönemde kullanıcılar birbirini profil fotoğrafındaki dönen böcekten tanımaya başladı.`
+      },
+      {
+        id: `duygu`,
+        categoryId: `tr-sosyal`,
+        rarity: `Nadir`,
+        era: `2020 • İstanbul Mutfak Vlog'u`,
+        clue: `Sabah mutfakta tava başında sahanda yumurta pişiren içerik üreticisi video çekiyor. Yumurtayı yabancı bir ifadeyle tarif edince günlerce konuşuldu.`,
+        answer: `Duygu Özaslan - Sabah Vlog'u "Sunny Side Up" (2020)`,
+        distractors: [
+          `Danla Bilic - Makyaj Masası Sohbeti (2019)`,
+          `Şeyma Subaşı - Miami Kahvaltı Hikayesi (2020)`,
+          `Rachel Araz - Nişantaşı Kahvaltı Rutini (2021)`
+        ],
+        story: `2020 yılında karantina günlerinde yayınlanan sabah rutini videosunda sahanda yumurtanın "sunny side up" olarak adlandırılması, Türk internet mizahında gündelik konuşma diline yerleşen en meşhur influencer repliklerinden biri haline geldi.`,
+        trivia: `✨ Kült Not: İfade kısa sürede kahvaltı mekanlarının menülerine bile esprili bir gönderme olarak girdi.`
+      },
+      {
+        id: `enes`,
+        categoryId: `tr-sosyal`,
+        rarity: `Nostaljik`,
+        era: `2017 – 2019 • Antalya RGB Stüdyo`,
+        clue: `Neon üçgen ışıklı stüdyosunda mikrofon başına geçip enerjik parodi klipleri çekiyor. "Dolunay" şarkısı ve tepkileriyle dönemin YouTube rekorlarını kırdı.`,
+        answer: `Enes Batur - YouTube Stüdyo & Parodi Dönemi (2018)`,
+        distractors: [
+          `Orkun Işıtmak - Korku Evi Serisi (2017)`,
+          `Berkcan Güven - Diss Parodi Klibi (2018)`,
+          `Reynmen - "Derdim Olsun" Klibi (2019)`
+        ],
+        story: `Türkiye'de YouTube kültürünün ana akım medyaya rakip olmaya başladığı 2017-2019 döneminde Enes Batur'un RGB ışıklı odasından çıkan yüksek tempolu videolar ve "Dolunay" gibi parodi şarkılar, milyonlarca aboneye ulaşan yeni bir dijital çağ başlattı.`,
+        trivia: `✨ Kült Not: Bu dönemde yayınlanan parodi klipler, Türkiye'de YouTube trend listelerinin haftalarca zirvesinde kaldı.`
+      },
+      {
+        id: `aykut`,
+        categoryId: `tr-sosyal`,
+        rarity: `Efsanevi`,
+        era: `2014 – 2016 • 7 Saniyelik Dikey Kadraj`,
+        clue: `Dikey telefon kadrajında tek başına hem anne hem çocuk rolüne giriyor. Kameraya yaklaşıp şaşkın tepki verdiği 7 saniyelik skeçler efsaneleşti.`,
+        answer: `Aykut Elmas - Vine "Nasıl Yani?" Skeçleri (2015)`,
+        distractors: [
+          `Halil İbrahim Göker - Okul Teneffüs Skeci (2015)`,
+          `Deep Turkish Web - Sokak Röportajı (2018)`,
+          `Uğur Can Akgül - Dublaj Videosu (2016)`
+        ],
+        story: `Sadece 7 saniyelik döngüsel video formatı sunan Vine platformunda Aykut Elmas, tek bir oda ve hızlı kesmelerle Türk aile yapısının en komik diyaloglarını ölümsüzleştirdi. Platform 2017'de kapansa da skeçleri bugün hâlâ ilk günkü kadar izleniyor.`,
+        trivia: `✨ Kült Not: 7 saniye sınırına rağmen kurduğu kusursuz zamanlama, modern kısa video kurgusunun Türkiye'deki öncüsü kabul edilir.`
+      },
+
+      // --- Ödül Geceleri ---
+      {
+        id: `bjork`,
+        categoryId: `odul-geceleri`,
+        rarity: `Efsanevi`,
+        era: `2001 • Los Angeles 73. Akademi Ödülleri`,
+        clue: `İzlandalı sanatçı boynuna dolanan beyaz bir kuğu elbiseyle kırmızı halıda yürüyor. Halıya bıraktığı dev yumurtalarla tüm ödül töreni kurallarını yıktı.`,
+        answer: `Björk - 73. Oscar Ödülleri Kuğu Elbisesi (2001)`,
+        distractors: [
+          `Cher - 58. Oscar Ödülleri Bob Mackie Kostümü (1986)`,
+          `Celine Dion - 71. Oscar Ters Takım Elbise (1999)`,
+          `Gwyneth Paltrow - 71. Oscar Pembe Elbise (1999)`
+        ],
+        story: `25 Mart 2001'de 73. Akademi Ödülleri'ne Makedon tasarımcı Marjan Pejoski imzalı kuğu elbisesiyle katılan Björk, kırmızı halı boyunca çantasından çıkardığı devekuşu yumurtası replikalarını halıya bırakarak klasik Hollywood şıklığına sürreal bir meydan okuma sundu.`,
+        trivia: `✨ Kült Not: İlk başta moda eleştirmenlerince sertçe eleştirilen elbise, yıllar sonra New York MoMA koleksiyonunda sergilenen bir sanat eserine dönüştü.`
+      },
+      {
+        id: `britney`,
+        categoryId: `odul-geceleri`,
+        rarity: `Efsanevi`,
+        era: `2001 • New York MTV Video Müzik Ödülleri`,
+        clue: `Tropik orman dekorlu sahnede yeşil kostümlü pop yıldızı dans ediyor. Omuzlarında taşıdığı canlı albino piton yılanı televizyon tarihine geçti.`,
+        answer: `Britney Spears - MTV VMA Piton Performansı (2001)`,
+        distractors: [
+          `Christina Aguilera - MTV VMA Dirrty Şovu (2002)`,
+          `Madonna - MTV VMA Gelinlik Performansı (2003)`,
+          `Shakira - MTV VMA Sahne Dansı (2005)`
+        ],
+        story: `6 Eylül 2001'de New York Metropolitan Opera Binası'ndaki MTV VMA sahnesinde "I'm a Slave 4 U" şarkısını seslendiren Britney Spears, omuzlarında "Banana" adlı canlı bir albino Burma pitonuyla dans ederek pop müzik tarihinin en ikonik canlı performansını sergiledi.`,
+        trivia: `✨ Kült Not: Sahne dekorunda gerçek tropik bitkiler ve kafes içinde bir kaplan da yer alıyordu.`
+      },
+      {
+        id: `willsmith`,
+        categoryId: `odul-geceleri`,
+        rarity: `Nostaljik`,
+        era: `2022 • Los Angeles 94. Akademi Ödülleri`,
+        clue: `Altın heykelcik gecesinde ünlü aktör koltuğundan kalkıp sahneye yürüyor. Sunucuya yaptığı canlı yayın müdahalesi saniyeler içinde dünyayı sarstı.`,
+        answer: `Will Smith & Chris Rock - 94. Oscar Töreni (2022)`,
+        distractors: [
+          `Kanye West & Taylor Swift - MTV VMA Sahnesi (2009)`,
+          `Warren Beatty & Faye Dunaway - Oscar Zarf Krizi (2017)`,
+          `Joaquin Phoenix - 92. Oscar Konuşması (2020)`
+        ],
+        story: `27 Mart 2022'de Dolby Tiyatrosu'nda gerçekleşen 94. Oscar Ödülleri'nde sunucu Chris Rock'ın esprisi üzerine sahneye yürüyen Will Smith'in canlı yayındaki müdahalesi, törenin tüm ödüllerini gölgede bırakan tarihi bir şok yarattı.`,
+        trivia: `✨ Kült Not: Will Smith aynı gecenin ilerleyen dakikalarında "King Richard" filmiyle En İyi Erkek Oyuncu Oscar'ını kazandı.`
+      },
+      {
+        id: `gaga-meat`,
+        categoryId: `odul-geceleri`,
+        rarity: `Efsanevi`,
+        era: `2010 • Los Angeles MTV VMA Kırmızı Halı`,
+        clue: `Kırmızı halıya baştan ayağa çiğ biftek dokulu avangart bir elbiseyle çıkıyor. Uyumlu et botları ve beresiyle tüm kameraları şoke etti.`,
+        answer: `Lady Gaga - MTV VMA Et Elbise (2010)`,
+        distractors: [
+          `Miley Cyrus - MTV VMA Lateks Kostüm (2013)`,
+          `Katy Perry - Met Gala Dev Burger Kostümü (2019)`,
+          `Doja Cat - Paris Moda Haftası Kristal Görünüm (2023)`
+        ],
+        story: `2010 MTV Video Müzik Ödülleri'nde Yılın Videosu ödülünü almak üzere sahneye çıkan Lady Gaga, tasarımcı Franc Fernandez'in gerçek Arjantin bifteğinden diktiği elbisesiyle hem moda hem de toplumsal protesto tarihine geçti.`,
+        trivia: `✨ Kült Not: Elbise tören sonrasında özel kimyasallarla kurutularak Rock and Roll Hall of Fame müzesinde kalıcı olarak koruma altına alındı.`
+      },
+
+      // --- Met Gala ---
+      {
+        id: `rihanna-met`,
+        categoryId: `met-gala`,
+        rarity: `Efsanevi`,
+        era: `2015 • New York Metropolitan Müzesi`,
+        clue: `Müzenin taş merdivenlerini kaplayan altın işlemeli sarı bir pelerin giyiyor. Kürklü yakası ve dev kuyruğuyla basamakları tek başına doldurdu.`,
+        answer: `Rihanna - Met Gala Guo Pei Sarı Pelerin (2015)`,
+        distractors: [
+          `Blake Lively - Met Gala Özgürlük Anıtı Elbisesi (2022)`,
+          `Zendaya - Met Gala Işıklı Külkedisi Elbisesi (2019)`,
+          `Billy Porter - Met Gala Altın Kanatlı Giriş (2019)`
+        ],
+        story: `2015 Met Gala'nın "China: Through the Looking Glass" teması için Çinli haute couture tasarımcısı Guo Pei'nin yaklaşık 25 kiloluk el işçiliği pelerinini seçen Rihanna, üç yardımcının taşıdığı dev kuyruğuyla Met Gala merdivenlerinin tartışmasız kraliçesi oldu.`,
+        trivia: `✨ Kült Not: Pelerinin üzerindeki altın nakışların tamamlanması tek bir zanaatkarın 50.000 saatlik emeğini aldı.`
+      },
+      {
+        id: `gaga-4layer`,
+        categoryId: `met-gala`,
+        rarity: `Nostaljik`,
+        era: `2019 • New York Met Gala "Camp" Teması`,
+        clue: `Pembe halıda dev fuşya elbisesinin katmanlarını görevlilerle tek tek çıkarıyor. Tek yürüyüşte dört farklı kostüm sergileyerek halıyı tiyatroya çevirdi.`,
+        answer: `Lady Gaga - Met Gala 4 Katmanlı Kostüm Şovu (2019)`,
+        distractors: [
+          `Kim Kardashian - Met Gala Marilyn Monroe Elbisesi (2022)`,
+          `Jared Leto - Met Gala Kendi Kafası Aksesuarı (2019)`,
+          `Cardi B - Met Gala Kırmızı Tüy Kuyruk (2019)`
+        ],
+        story: `2019 Met Gala'nın eş başkanı olan Lady Gaga, Brandon Maxwell tasarımı dev pembe elbisenin içinden sırasıyla siyah asimetrik bir elbise, fuşya dar bir tuvalet ve son olarak ışıltılı kristal bir sahne kostümü çıkararak kırmızı halıda 16 dakikalık bir performans sergiledi.`,
+        trivia: `✨ Kült Not: Performans sırasında makyaj tazeleme ve retro cep telefonu aksesuarları da koreografinin parçasıydı.`
+      },
+      {
+        id: `katy-chandelier`,
+        categoryId: `met-gala`,
+        rarity: `Nadir`,
+        era: `2019 • New York Met Gala / Moschino`,
+        clue: `Gümüş korsesi ve çevresinde yanan gerçek kristal mumlarla salona giriyor. Yürüyen dev bir avize kılığında gecenin en parlak anına imza attı.`,
+        answer: `Katy Perry - Met Gala Avize Kostümü (2019)`,
+        distractors: [
+          `Rihanna - Met Gala Papalık Tacı Görünümü (2018)`,
+          `Lil Nas X - Met Gala Altın Zırh Dönüşümü (2021)`,
+          `Sia - Grammy Dev Peruklu Kırmızı Halı (2015)`
+        ],
+        story: `Jeremy Scott'ın Moschino için tasarladığı ve üzerinde pillerle çalışan gerçek LED kristal ampuller taşıyan bu üç katlı avize elbise, 2019 Met Gala'nın "Camp: Notes on Fashion" temasını kelimenin tam anlamıyla aydınlattı.`,
+        trivia: `✨ Kült Not: Katy Perry gece ilerledikçe parti için bu avizeyi çıkarıp dev bir çizburger kostümü giydi.`
+      },
+
+      // --- Müzik Efsaneleri ---
+      {
+        id: `beatles`,
+        categoryId: `muzik-efsaneleri`,
+        rarity: `Efsanevi`,
+        era: `1969 • Londra St John's Wood`,
+        clue: `Dört müzisyen Londra'da ağaçlı bir caddedeki beyaz yaya geçidinden yürüyor. Tek sıra attıkları bu adım müzik tarihinin en ünlü albüm kapağı oldu.`,
+        answer: `The Beatles - Londra Abbey Road Geçidi (1969)`,
+        distractors: [
+          `Queen - Bohemian Rhapsody Stüdyo Karesi (1975)`,
+          `Pink Floyd - Battersea Santrali Kapağı (1977)`,
+          `The Rolling Stones - Hyde Park Konseri (1969)`
+        ],
+        story: `8 Ağustos 1969 sabahı saat 11:35'te fotoğrafçı Iain Macmillan'ın bir merdiven tepesinden sadece 10 dakikalık trafik kesintisinde çektiği 6 kareden beşincisi, The Beatles'ın 11. stüdyo albümü Abbey Road'un kapağı olarak ölümsüzleşti.`,
+        trivia: `✨ Kült Not: Londra'daki bu yaya geçidi 2010 yılında İngiliz hükümeti tarafından kültürel miras anıtı ilan edildi.`
+      },
+      {
+        id: `beyonce`,
+        categoryId: `muzik-efsaneleri`,
+        rarity: `Nadir`,
+        era: `2018 • Kaliforniya Coachella Festivali`,
+        clue: `Piramit basamaklı sahnede sarı kapüşonlusu ve Mısır kraliçesi tacıyla parlıyor. Dev bando ekibine liderlik ederek festival tarihini yeniden yazdı.`,
+        answer: `Beyoncé - Coachella "Beychella" Sahnesi (2018)`,
+        distractors: [
+          `Rihanna - Super Bowl Devre Arası Şovu (2023)`,
+          `Taylor Swift - The Eras Tour Açılış Gecesi (2023)`,
+          `Ariana Grande - Coachella Ana Sahne Finali (2019)`
+        ],
+        story: `Nisan 2018'de Coachella Festivali'nde ana sahneye çıkan ilk siyahi kadın sanatçı olan Beyoncé, 100'den fazla dansçı ve müzisyenden oluşan dev bando kadrosu ve Balmain tasarımı Nefertiti tacıyla "Homecoming" belgeseline konu olan tarihi bir şov sundu.`,
+        trivia: `✨ Kült Not: Performans o kadar büyük bir kültürel etki yarattı ki festival hayranları arasında etkinliğin adı "Beychella" olarak anılmaya başlandı.`
+      },
+      {
+        id: `coldplay-ceo`,
+        categoryId: `muzik-efsaneleri`,
+        rarity: `Nadir`,
+        era: `2025 • Stadyum Konseri Dev Ekran`,
+        clue: `Stadyum konserindeki dev 'kiss-cam' ekranı tribündeki bir çifte odaklanıyor. İkili panikle yüzünü saklamaya çalışınca olay viral skandala dönüştü.`,
+        answer: `Coldplay Konseri - Stadyum Kiss-Cam Skandalı (2025)`,
+        distractors: [
+          `Taylor Swift Konseri - VIP Tribün Sürprizi (2024)`,
+          `U2 Las Vegas Sphere - Dev Ekran Anı (2023)`,
+          `Super Bowl - Tribün Kamerası Şakası (2024)`
+        ],
+        story: `Stadyum konserlerinde romantik anlar yakalamak için kullanılan dev kiss-cam kamerasının tribündeki bir şirket yöneticisini beklenmedik anda ekrana yansıtması ve ikilinin panikle eğilerek saklanmaya çalışması, saatler içinde küresel bir internet fenomenine dönüştü.`,
+        trivia: `✨ Kült Not: Görüntülerin yayılmasının ardından stadyum konserlerindeki kiss-cam anları sosyal medyada yeni bir mizah akımı başlattı.`
+      },
+      {
+        id: `mj-thriller`,
+        categoryId: `muzik-efsaneleri`,
+        rarity: `Efsanevi`,
+        era: `1982 • Los Angeles Müzik Klibi`,
+        clue: `Siyah V şeritli kırmızı deri ceketi ve tek beyaz eldiveniyle dans ediyor. Dolunay altındaki bu koreografi pop müzik tarihinin zirvesine yerleşti.`,
+        answer: `Michael Jackson - "Thriller" Klibi (1982)`,
+        distractors: [
+          `Freddie Mercury - Wembley Live Aid Sarı Ceket (1985)`,
+          `Prince - "Purple Rain" Sahne Performansı (1984)`,
+          `Elvis Presley - 68 Comeback Siyah Deri Takım (1968)`
+        ],
+        story: `Yönetmen John Landis'in 14 dakikalık kısa film olarak çektiği "Thriller" klibinde Michael Jackson'ın giydiği Deborah Nadoolman tasarımı siyah V şeritli kırmızı deri ceket, müzik videolarını sinema sanatına dönüştüren dönüm noktası oldu.`,
+        trivia: `✨ Kült Not: Thriller müzik videosu, ABD Kongre Kütüphanesi Ulusal Film Arşivi'ne seçilen ilk müzik klibidir.`
+      },
+
+      // --- Eurovision ---
+      {
+        id: `sertab`,
+        categoryId: `eurovision`,
+        rarity: `Efsanevi`,
+        era: `2003 • Riga Skonto Hall / Eurovision`,
+        clue: `Uçuşan kırmızı-krem kurdeleleri ve "04 Turkey" çıkışıyla sahneyi büyülüyor. Gecenin sonunda Türkiye'ye tarihindeki ilk birinciliği getirdi.`,
+        answer: `Sertab Erener - Riga Eurovision "04 Turkey" (2003)`,
+        distractors: [
+          `Şebnem Paker - Dublin Eurovision "Dinle" (1997)`,
+          `Athena - İstanbul Eurovision "For Real" (2004)`,
+          `Kenan Doğulu - Helsinki Eurovision "Shake It Up" (2007)`
+        ],
+        story: `24 Mayıs 2003'te Letonya'nın başkenti Riga'da 4. sırada sahneye çıkan Sertab Erener, Demir Demirkan ile birlikte hazırladığı "Everyway That I Can" şarkısı ve uçuşan kurdele koreografisiyle 167 puan toplayarak Türkiye'ye tarihindeki ilk Eurovision zaferini kazandırdı.`,
+        trivia: `✨ Kült Not: Oylamanın son ülkesi Slovenya'nın verdiği puanlarla Belçika'yı sadece 2 puan farkla geçerek kupayı kaldırdık.`
+      },
+      {
+        id: `hadise`,
+        categoryId: `eurovision`,
+        rarity: `Efsanevi`,
+        era: `2009 • Moskova Olimpiyskiy Arena / Eurovision`,
+        clue: `Kırmızı taşlı iki parçalı sahne kıyafetiyle yüksek enerjili dans ediyor. Ritmik nakaratı ve koreografisiyle Moskova sahnesinde fırtına estirdi.`,
+        answer: `Hadise - Moskova Eurovision "Düm Tek Tek" (2009)`,
+        distractors: [
+          `Mor ve Ötesi - Belgrad Eurovision "Deli" (2008)`,
+          `Gülşen - Harbiye Açıkhava "Bangır Bangır" (2015)`,
+          `Hande Yener - İstanbul Arena "Kırmızı" (2004)`
+        ],
+        story: `Mayıs 2009'da Moskova'da düzenlenen Eurovision Şarkı Yarışması'nda Türkiye'yi temsil eden Hadise, özel tasarım kırmızı sahne kostümü ve yüksek tempolu oryantal-pop koreografisiyle 177 puan toplayarak yarışmayı 4. sırada tamamladı.`,
+        trivia: `✨ Kült Not: "Düm Tek Tek", yarışma sonrasında Avrupa müzik listelerinde en çok indirilen Eurovision şarkılarından biri oldu.`
+      },
+      {
+        id: `manga`,
+        categoryId: `eurovision`,
+        rarity: `Nostaljik`,
+        era: `2010 • Oslo Telenor Arena / Eurovision`,
+        clue: `Kıvılcımlar saçan sahnede metalik bir robot figürü ve gitarlar yükseliyor. Avrupa seyircisini zıplatan bu rock şovu ikincilik kupasını getirdi.`,
+        answer: `maNga - Oslo Eurovision "We Could Be The Same" (2010)`,
+        distractors: [
+          `Yüksek Sadakat - Düsseldorf Eurovision "Live It Up" (2011)`,
+          `Can Bonomo - Bakü Eurovision "Love Me Back" (2012)`,
+          `Duman - Rock'n Coke Ana Sahne Finali (2009)`
+        ],
+        story: `29 Mayıs 2010'da Norveç'in Oslo kentinde sahneye çıkan maNga, piroteknik alevler ve sahne ortasındaki fütüristik robot koreografisiyle 170 puan alarak Türkiye'ye Eurovision tarihindeki en yüksek ikinci derecesini kazandırdı.`,
+        trivia: `✨ Kült Not: Şarkı aynı yıl MTV Avrupa Müzik Ödülleri'nde de büyük beğeni toplayarak Türk rock müziğinin uluslararası vitrini oldu.`
+      },
+      {
+        id: `abba`,
+        categoryId: `eurovision`,
+        rarity: `Nadir`,
+        era: `1974 • Brighton Dome / Eurovision`,
+        clue: `Gümüş platform çizmeler ve saten sahne kıyafetleriyle dörtlü grup parlıyor. Bu zafer İsveç'e ilk kupayı getirirken pop tarihini değiştirdi.`,
+        answer: `ABBA - Brighton Eurovision "Waterloo" (1974)`,
+        distractors: [
+          `Lordi - Atina Eurovision "Hard Rock Hallelujah" (2006)`,
+          `Måneskin - Rotterdam Eurovision "Zitti e buoni" (2021)`,
+          `Boney M. - Londra Top of the Pops Sahnesi (1978)`
+        ],
+        story: `6 Nisan 1974'te İngiltere'nin Brighton şehrinde "Waterloo" şarkısıyla sahneye çıkan İsveçli dörtlü ABBA, gümüş platform çizmeleri ve renkli saten kostümleriyle hem ülkelerine ilk Eurovision birinciliğini getirdi hem de küresel pop tarihinin en büyük gruplarından birine dönüştü.`,
+        trivia: `✨ Kült Not: "Waterloo", Eurovision'un 50. yıl özel oylamasında yarışma tarihinin en iyi şarkısı seçildi.`
+      }
+    ];
+
+    /* =========================================================================
+       4. AUDIO ENGINE
+       ========================================================================= */
+    const SoundEngine = {
+      ctx: null,
+      enabled: true,
+
+      ensure() {
+        if (!this.enabled) return null;
+        try {
+          if (!this.ctx) {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (AudioCtx) this.ctx = new AudioCtx();
+          }
+          if (this.ctx && this.ctx.state === `suspended`) {
+            this.ctx.resume();
+          }
+          return this.ctx;
+        } catch (e) {
+          return null;
+        }
+      },
+
+      playTone(freq, duration, type, volume, delay) {
+        const ctx = this.ensure();
+        if (!ctx) return;
+        const now = ctx.currentTime + (delay || 0);
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type || `sine`;
+        osc.frequency.setValueAtTime(freq, now);
+        gain.gain.setValueAtTime(volume || 0.11, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + duration);
+      },
+
+      playClick() { this.playTone(540, 0.06, `triangle`, 0.08, 0); },
+      playFrameSwap() { this.playTone(640, 0.045, `sine`, 0.04, 0); },
+      playTick(urgent) {
+        if (urgent) {
+          this.playTone(1080, 0.045, `square`, 0.05, 0);
+          this.playTone(1240, 0.04, `triangle`, 0.04, 0.08);
+        } else {
+          this.playTone(760, 0.035, `triangle`, 0.045, 0);
+        }
+      },
+      playFlip() {
+        this.playTone(420, 0.09, `sine`, 0.06, 0);
+        this.playTone(680, 0.11, `sine`, 0.06, 0.05);
+      },
+      playVictory() {
+        [523.25, 659.25, 783.99, 1046.5].forEach((n, idx) => {
+          this.playTone(n, 0.24, `triangle`, 0.11, idx * 0.075);
+        });
+      },
+      playFail() {
+        this.playTone(349.23, 0.16, `sawtooth`, 0.07, 0);
+        this.playTone(293.66, 0.18, `sawtooth`, 0.07, 0.14);
+        this.playTone(220.0, 0.28, `sawtooth`, 0.06, 0.28);
+      }
+    };
+
+    /* =========================================================================
+       5. GAME STATE & SETTINGS
+       ========================================================================= */
+    const OPTION_KEYS = [`A`, `B`, `C`, `D`];
+
+    const appState = {
+      screen: `hub`,
+      previousScreen: `hub`,
+      score: 0,
+      bestScore: 0,
+      streak: 0,
+      bestStreak: 0,
+      roundDuration: 30,
+      soundEnabled: true,
+      discoveredIds: [],
+
+      hubFlipped: false,
+      hubView: `menu`,
+
+      currentCategoryId: null,
+      deck: [],
+      deckIndex: 0,
+      roundScore: 0,
+      roundCorrect: 0,
+      roundBestStreak: 0,
+      roundHistory: [],
+      answered: false,
+      activeFrame: 0,
+      timeLeft: 30,
+      timerHandle: null
+    };
+
+    function saveLocalState() {
+      try {
+        localStorage.setItem(`iknowthaticon_v4`, JSON.stringify({
+          bestScore: appState.bestScore,
+          bestStreak: appState.bestStreak,
+          roundDuration: appState.roundDuration,
+          soundEnabled: appState.soundEnabled,
+          discoveredIds: appState.discoveredIds
+        }));
+      } catch (e) {}
+    }
+
+    function loadLocalState() {
+      try {
+        const raw = localStorage.getItem(`iknowthaticon_v4`);
+        if (raw) {
+          const data = JSON.parse(raw);
+          if (typeof data.bestScore === `number`) appState.bestScore = data.bestScore;
+          if (typeof data.bestStreak === `number`) appState.bestStreak = data.bestStreak;
+          if ([30, 45, 60].includes(data.roundDuration)) appState.roundDuration = data.roundDuration;
+          if (typeof data.soundEnabled === `boolean`) appState.soundEnabled = data.soundEnabled;
+          if (Array.isArray(data.discoveredIds)) {
+            appState.discoveredIds = data.discoveredIds.filter((id) => CARDS_DATA.some((c) => c.id === id));
+          }
+        }
+      } catch (e) {}
+      SoundEngine.enabled = appState.soundEnabled;
+      updateHud();
+    }
+
+    function shuffleArray(list) {
+      const arr = list.slice();
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function updateHud() {
+      const scoreEl = document.getElementById(`hud-score`);
+      const streakEl = document.getElementById(`hud-streak`);
+      const archiveBadge = document.getElementById(`menu-archive-badge`);
+      const timeBadge = document.getElementById(`menu-time-badge`);
+      const soundBtn = document.getElementById(`settings-sound-btn`);
+
+      if (scoreEl) scoreEl.textContent = String(appState.score);
+      if (streakEl) streakEl.textContent = String(appState.streak);
+      if (archiveBadge) archiveBadge.textContent = `${appState.discoveredIds.length}/${CARDS_DATA.length}`;
+      if (timeBadge) timeBadge.textContent = `${appState.roundDuration} sn`;
+      if (soundBtn) {
+        soundBtn.textContent = appState.soundEnabled ? `🔊 Ses Efektleri: Açık` : `🔇 Ses Efektleri: Kapalı`;
+      }
+      document.querySelectorAll(`.time-choice-btn`).forEach((btn) => {
+        btn.classList.toggle(`is-selected`, Number(btn.dataset.sec) === appState.roundDuration);
+      });
+    }
+
+    function showScreen(name) {
+      stopTimer();
+      if (appState.screen !== name) {
+        appState.previousScreen = appState.screen;
+      }
+      appState.screen = name;
+      [`hub`, `play`, `settings`, `credits`, `summary`, `archive`].forEach((key) => {
+        const el = document.getElementById(`screen-${key}`);
+        if (el) el.classList.toggle(`is-active`, key === name);
+      });
+      updateHud();
+    }
+
+    /* =========================================================================
+       6. HUB CARD INTERACTION
+       ========================================================================= */
+    function flipHubToBack() {
+      if (appState.hubFlipped) return;
+      SoundEngine.ensure();
+      SoundEngine.playFlip();
+      appState.hubFlipped = true;
+      const flipper = document.getElementById(`hub-flipper`);
+      if (flipper) flipper.classList.add(`is-flipped`);
+    }
+
+    function flipHubToFront() {
+      SoundEngine.playFlip();
+      appState.hubFlipped = false;
+      const flipper = document.getElementById(`hub-flipper`);
+      if (flipper) flipper.classList.remove(`is-flipped`);
+    }
+
+    function goToHubFront() {
+      SoundEngine.playClick();
+      backToMenuOnCard(true);
+      flipHubToFront();
+      showScreen(`hub`);
+    }
+
+    function goToHubCategories() {
+      SoundEngine.playClick();
+      showScreen(`hub`);
+      appState.hubFlipped = true;
+      const flipper = document.getElementById(`hub-flipper`);
+      if (flipper) flipper.classList.add(`is-flipped`);
+      revealCategoriesOnCard(true);
+    }
+
+    function revealCategoriesOnCard(instant) {
+      SoundEngine.playClick();
+      renderHubCategories();
+      const menuView = document.getElementById(`hub-menu-view`);
+      const catView = document.getElementById(`hub-categories-view`);
+      if (!menuView || !catView) return;
+
+      if (instant) {
+        menuView.classList.add(`is-hidden`);
+        menuView.classList.remove(`is-fading-out`);
+        catView.classList.remove(`is-hidden`, `is-fading-out`);
+        appState.hubView = `categories`;
+        return;
+      }
+
+      menuView.classList.add(`is-fading-out`);
+      setTimeout(() => {
+        menuView.classList.add(`is-hidden`);
+        menuView.classList.remove(`is-fading-out`);
+        catView.classList.remove(`is-hidden`);
+        catView.classList.add(`is-fading-out`);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            catView.classList.remove(`is-fading-out`);
+          });
+        });
+        appState.hubView = `categories`;
+      }, 300);
+    }
+
+    function backToMenuOnCard(instant) {
+      if (!instant) SoundEngine.playClick();
+      const menuView = document.getElementById(`hub-menu-view`);
+      const catView = document.getElementById(`hub-categories-view`);
+      if (!menuView || !catView) return;
+
+      if (instant) {
+        catView.classList.add(`is-hidden`);
+        menuView.classList.remove(`is-hidden`, `is-fading-out`);
+        appState.hubView = `menu`;
+        return;
+      }
+
+      catView.classList.add(`is-fading-out`);
+      setTimeout(() => {
+        catView.classList.add(`is-hidden`);
+        catView.classList.remove(`is-fading-out`);
+        menuView.classList.remove(`is-hidden`);
+        menuView.classList.add(`is-fading-out`);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            menuView.classList.remove(`is-fading-out`);
+          });
+        });
+        appState.hubView = `menu`;
+      }, 280);
+    }
+
+    function renderHubCategories() {
+      const list = document.getElementById(`card-cat-list`);
+      if (!list) return;
+      list.innerHTML = CATEGORIES.map((cat) => {
+        const catCards = CARDS_DATA.filter((c) => c.categoryId === cat.id);
+        const unlocked = catCards.filter((c) => appState.discoveredIds.includes(c.id)).length;
+        return `
+          <button type="button" class="card-cat-item" onclick="startCategory('${cat.id}')">
+            <div class="card-cat-item-info">
+              <span class="card-cat-emoji">${cat.icon}</span>
+              <div>
+                <span class="card-cat-name">${cat.name}</span>
+                <span class="card-cat-sub">${catCards.length} Kart • ${unlocked}/${catCards.length} Açık</span>
+              </div>
+            </div>
+            <span class="card-cat-go">Oyna →</span>
+          </button>
+        `;
+      }).join(``);
+    }
+
+    /* =========================================================================
+       7. SUB-SCREENS
+       ========================================================================= */
+    function openSettings() {
+      SoundEngine.ensure();
+      SoundEngine.playClick();
+      updateHud();
+      showScreen(`settings`);
+    }
+
+    function openCredits() {
+      SoundEngine.ensure();
+      SoundEngine.playClick();
+      showScreen(`credits`);
+    }
+
+    function goToArchive() {
+      SoundEngine.ensure();
+      SoundEngine.playClick();
+      renderArchive();
+      showScreen(`archive`);
+    }
+
+    function returnFromSubscreen() {
+      SoundEngine.playClick();
+      const target = appState.previousScreen === `play` ? `play` : `hub`;
+      showScreen(target);
+      if (target === `play` && !appState.answered) {
+        startTimer();
+      }
+    }
+
+    function setRoundDuration(sec) {
+      SoundEngine.playClick();
+      appState.roundDuration = sec;
+      updateHud();
+      saveLocalState();
+    }
+
+    function toggleSound() {
+      appState.soundEnabled = !appState.soundEnabled;
+      SoundEngine.enabled = appState.soundEnabled;
+      if (appState.soundEnabled) {
+        SoundEngine.ensure();
+        SoundEngine.playClick();
+      }
+      updateHud();
+      saveLocalState();
+    }
+
+    function resetArchive(btn) {
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Eminsen Tekrar Dokun`;
+        setTimeout(() => {
+          btn.dataset.armed = `false`;
+          btn.textContent = `İlerlemeyi Sıfırla`;
+        }, 3200);
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = `İlerlemeyi Sıfırla`;
+      appState.discoveredIds = [];
+      appState.score = 0;
+      appState.bestScore = 0;
+      appState.streak = 0;
+      appState.bestStreak = 0;
+      SoundEngine.playClick();
+      updateHud();
+      saveLocalState();
+    }
+
+    /* =========================================================================
+       8. GAMEPLAY & RARITY-SPECIFIC CARD FINISHES
+       ========================================================================= */
+    function startCategory(catId) {
+      SoundEngine.ensure();
+      SoundEngine.playClick();
+      appState.currentCategoryId = catId;
+      const cards = CARDS_DATA.filter((c) => c.categoryId === catId);
+      beginDeck(shuffleArray(cards));
+    }
+
+    function startMixedMarathon() {
+      SoundEngine.ensure();
+      SoundEngine.playClick();
+      appState.currentCategoryId = `mixed`;
+      beginDeck(shuffleArray(CARDS_DATA).slice(0, 10));
+    }
+
+    function replayLastMode() {
+      if (appState.currentCategoryId === `mixed`) {
+        startMixedMarathon();
+      } else if (appState.currentCategoryId) {
+        startCategory(appState.currentCategoryId);
+      } else {
+        goToHubCategories();
+      }
+    }
+
+    function beginDeck(deck) {
+      appState.deck = deck;
+      appState.deckIndex = 0;
+      appState.roundScore = 0;
+      appState.roundCorrect = 0;
+      appState.roundBestStreak = 0;
+      appState.roundHistory = [];
+      showScreen(`play`);
+      loadCurrentCard();
+    }
+
+    function getRarityClass(rarity) {
+      if (rarity === `Efsanevi`) return `rarity-efsanevi`;
+      if (rarity === `Nostaljik`) return `rarity-nostaljik`;
+      return `rarity-nadir`;
+    }
+
+    function getFinishClass(rarity) {
+      if (rarity === `Efsanevi`) return `finish-efsanevi`;
+      if (rarity === `Nostaljik`) return `finish-nostaljik`;
+      return `finish-nadir`;
+    }
+
+    function getRarityIcon(rarity) {
+      if (rarity === `Efsanevi`) return `★`;
+      if (rarity === `Nostaljik`) return `✦`;
+      return `◆`;
+    }
+
+    function setCardArtFrame(frameIdx, playSound) {
+      const next = frameIdx === 1 ? 1 : 0;
+      if (appState.activeFrame === next) return;
+      appState.activeFrame = next;
+
+      const f0 = document.getElementById(`art-frame-0`);
+      const f1 = document.getElementById(`art-frame-1`);
+      const badge = document.getElementById(`frame-badge-pill`);
+
+      if (f0) f0.classList.toggle(`is-visible`, next === 0);
+      if (f1) f1.classList.toggle(`is-visible`, next === 1);
+      if (badge) {
+        badge.textContent = next === 0
+          ? `Kare 1/2 • Kartı Oynat`
+          : `Kare 2/2 • Aksiyon Anı!`;
+      }
+      if (playSound) SoundEngine.playFrameSwap();
+    }
+
+    function loadCurrentCard() {
+      const card = appState.deck[appState.deckIndex];
+      if (!card) return;
+
+      appState.answered = false;
+      appState.activeFrame = 0;
+      appState.timeLeft = appState.roundDuration;
+
+      const flipper = document.getElementById(`play-card-flipper`);
+      if (flipper) flipper.classList.remove(`is-flipped`);
+
+      // Apply Rarity-Specific Finish: Rainbow ONLY on Efsanevi!
+      const finishCls = getFinishClass(card.rarity);
+      const frontFace = document.getElementById(`play-front-face`);
+      const backFace = document.getElementById(`play-back-face`);
+      if (frontFace) {
+        frontFace.classList.remove(`finish-efsanevi`, `finish-nostaljik`, `finish-nadir`);
+        frontFace.classList.add(finishCls);
+      }
+      if (backFace) {
+        backFace.classList.remove(`finish-efsanevi`, `finish-nostaljik`, `finish-nadir`);
+        backFace.classList.add(finishCls);
+      }
+
+      const cat = CATEGORIES.find((ct) => ct.id === card.categoryId);
+      const rarityPill = document.getElementById(`card-rarity`);
+      const progressPill = document.getElementById(`card-progress`);
+      const catLabel = document.getElementById(`card-cat-label`);
+      const clueText = document.getElementById(`card-clue-text`);
+      const f0 = document.getElementById(`art-frame-0`);
+      const f1 = document.getElementById(`art-frame-1`);
+      const badge = document.getElementById(`frame-badge-pill`);
+
+      if (rarityPill) {
+        rarityPill.className = `rarity-pill ${getRarityClass(card.rarity)}`;
+        rarityPill.textContent = `${getRarityIcon(card.rarity)} ${card.rarity}`;
+      }
+      if (progressPill) progressPill.textContent = `${appState.deckIndex + 1} / ${appState.deck.length}`;
+      if (catLabel) catLabel.textContent = cat ? `${cat.name} • İpucu` : `İpucu`;
+      if (clueText) clueText.textContent = card.clue;
+
+      if (f0) {
+        f0.innerHTML = buildPopArtFrameSvg(card.id, 0);
+        f0.classList.add(`is-visible`);
+      }
+      if (f1) {
+        f1.innerHTML = buildPopArtFrameSvg(card.id, 1);
+        f1.classList.remove(`is-visible`);
+      }
+      if (badge) badge.textContent = `Kare 1/2 • Kartı Oynat`;
+
+      const backTitle = document.getElementById(`back-title`);
+      const backEra = document.getElementById(`back-era`);
+      const backStory = document.getElementById(`back-story`);
+      const backTrivia = document.getElementById(`back-trivia`);
+      const backRarity = document.getElementById(`back-rarity`);
+      if (backTitle) backTitle.textContent = card.answer;
+      if (backEra) backEra.textContent = card.era;
+      if (backStory) backStory.textContent = card.story;
+      if (backTrivia) backTrivia.textContent = card.trivia || ``;
+      if (backRarity) {
+        backRarity.className = `rarity-pill ${getRarityClass(card.rarity)}`;
+        backRarity.textContent = `${getRarityIcon(card.rarity)} ${card.rarity}`;
+      }
+
+      const options = shuffleArray([
+        { label: card.answer, isCorrect: true },
+        ...card.distractors.map((d) => ({ label: d, isCorrect: false }))
+      ]);
+      const optionsList = document.getElementById(`options-list`);
+      if (optionsList) {
+        optionsList.innerHTML = options.map((opt, idx) => `
+          <button
+            type="button"
+            class="option-btn"
+            data-correct="${opt.isCorrect ? `true` : `false`}"
+            onclick="selectOption(this)">
+            <span class="option-key">${OPTION_KEYS[idx]}</span>
+            <span>${opt.label}</span>
+          </button>
+        `).join(``);
+      }
+
+      const fb = document.getElementById(`feedback-bar`);
+      if (fb) fb.classList.remove(`is-visible`, `is-win`, `is-loss`);
+
+      const nextBtn = document.getElementById(`btn-next-card`);
+      if (nextBtn) {
+        nextBtn.textContent = appState.deckIndex >= appState.deck.length - 1
+          ? `Turu Tamamla →`
+          : `Sonraki Kart →`;
+      }
+
+      startTimer();
+    }
+
+    function startTimer() {
+      stopTimer();
+      updateTimerUi();
+      appState.timerHandle = setInterval(() => {
+        if (appState.answered) {
+          stopTimer();
+          return;
+        }
+        appState.timeLeft -= 1;
+        updateTimerUi();
+        if (appState.timeLeft > 0) {
+          SoundEngine.playTick(appState.timeLeft <= 5);
+        } else {
+          stopTimer();
+          handleTimeout();
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (appState.timerHandle) {
+        clearInterval(appState.timerHandle);
+        appState.timerHandle = null;
+      }
+    }
+
+    function updateTimerUi() {
+      const countEl = document.getElementById(`timer-count`);
+      const fillEl = document.getElementById(`timer-bar-fill`);
+      const labelEl = document.getElementById(`timer-status-label`);
+      const pct = Math.max(0, Math.min(100, (appState.timeLeft / appState.roundDuration) * 100));
+      const urgent = appState.timeLeft <= 5 && !appState.answered;
+
+      if (countEl) {
+        countEl.textContent = `${appState.timeLeft} sn`;
+        countEl.classList.toggle(`is-urgent`, urgent);
+      }
+      if (fillEl) {
+        fillEl.style.width = `${pct}%`;
+        fillEl.classList.toggle(`is-urgent`, urgent);
+      }
+      if (labelEl) {
+        labelEl.textContent = appState.answered ? `Tur Durumu` : (urgent ? `Acele Et!` : `Tahmin Süresi`);
+      }
+    }
+
+    function selectOption(btn) {
+      if (appState.answered || !btn) return;
+      appState.answered = true;
+      stopTimer();
+      updateTimerUi();
+      setCardArtFrame(1, false);
+
+      const isCorrect = btn.dataset.correct === `true`;
+      const card = appState.deck[appState.deckIndex];
+      document.querySelectorAll(`#options-list .option-btn`).forEach((b) => {
+        b.disabled = true;
+        if (b.dataset.correct === `true`) {
+          b.classList.add(`is-correct`);
+        } else if (b === btn && !isCorrect) {
+          b.classList.add(`is-wrong`);
+        } else {
+          b.classList.add(`is-dimmed`);
+        }
+      });
+
+      if (isCorrect) {
+        const timeBonus = appState.timeLeft * 10;
+        appState.streak += 1;
+        const streakBonus = Math.min(appState.streak - 1, 5) * 25;
+        const points = 100 + timeBonus + streakBonus;
+
+        appState.score += points;
+        appState.roundScore += points;
+        appState.roundCorrect += 1;
+        if (appState.streak > appState.bestStreak) appState.bestStreak = appState.streak;
+        if (appState.streak > appState.roundBestStreak) appState.roundBestStreak = appState.streak;
+        if (appState.score > appState.bestScore) appState.bestScore = appState.score;
+
+        if (card && !appState.discoveredIds.includes(card.id)) {
+          appState.discoveredIds.push(card.id);
+        }
+        appState.roundHistory.push(`🟩`);
+        SoundEngine.playVictory();
+        spawnWinEffects();
+        showFeedback(true, `Harika! +${points} Puan`, `Hız bonusu +${timeBonus} • Seri: ${appState.streak}🔥`);
+      } else {
+        appState.roundHistory.push(`🟥`);
+        appState.streak = 0;
+        SoundEngine.playFail();
+        spawnLossEffects();
+        showFeedback(false, `Yanlış Tahmin!`, `Doğru cevap: ${card ? card.answer : ``}`);
+      }
+
+      updateHud();
+      saveLocalState();
+
+      setTimeout(() => {
+        const flipper = document.getElementById(`play-card-flipper`);
+        if (flipper && appState.screen === `play`) {
+          flipper.classList.add(`is-flipped`);
+          SoundEngine.playFlip();
+        }
+      }, 380);
+    }
+
+    function handleTimeout() {
+      if (appState.answered) return;
+      appState.answered = true;
+      appState.streak = 0;
+      appState.roundHistory.push(`⏱️`);
+      setCardArtFrame(1, false);
+
+      const card = appState.deck[appState.deckIndex];
+      document.querySelectorAll(`#options-list .option-btn`).forEach((b) => {
+        b.disabled = true;
+        if (b.dataset.correct === `true`) {
+          b.classList.add(`is-correct`);
+        } else {
+          b.classList.add(`is-dimmed`);
+        }
+      });
+
+      SoundEngine.playFail();
+      spawnLossEffects();
+      showFeedback(false, `Süre Doldu! ⏱️`, `Doğru cevap: ${card ? card.answer : ``}`);
+      updateHud();
+      saveLocalState();
+
+      setTimeout(() => {
+        const flipper = document.getElementById(`play-card-flipper`);
+        if (flipper && appState.screen === `play`) {
+          flipper.classList.add(`is-flipped`);
+          SoundEngine.playFlip();
+        }
+      }, 350);
+    }
+
+    function showFeedback(isWin, title, sub) {
+      const fb = document.getElementById(`feedback-bar`);
+      const t = document.getElementById(`feedback-title`);
+      const s = document.getElementById(`feedback-sub`);
+      if (!fb || !t || !s) return;
+      t.textContent = title;
+      s.textContent = sub;
+      fb.classList.remove(`is-win`, `is-loss`);
+      fb.classList.add(`is-visible`, isWin ? `is-win` : `is-loss`);
+    }
+
+    function flipCardManual() {
+      const flipper = document.getElementById(`play-card-flipper`);
+      if (!flipper || !appState.answered) return;
+      flipper.classList.toggle(`is-flipped`);
+      SoundEngine.playFlip();
+    }
+
+    function nextCard() {
+      SoundEngine.playClick();
+      if (appState.deckIndex < appState.deck.length - 1) {
+        appState.deckIndex += 1;
+        loadCurrentCard();
+      } else {
+        finishRound();
+      }
+    }
+
+    function finishRound() {
+      stopTimer();
+      const cat = CATEGORIES.find((c) => c.id === appState.currentCategoryId);
+      const badge = document.getElementById(`summary-badge`);
+      const title = document.getElementById(`summary-title`);
+      const sub = document.getElementById(`summary-sub`);
+      const sumScore = document.getElementById(`sum-score`);
+      const sumCorrect = document.getElementById(`sum-correct`);
+      const sumStreak = document.getElementById(`sum-streak`);
+
+      if (badge) badge.textContent = cat ? cat.name : `Karışık Maraton`;
+      if (sumScore) sumScore.textContent = String(appState.roundScore);
+      if (sumCorrect) sumCorrect.textContent = `${appState.roundCorrect}/${appState.deck.length}`;
+      if (sumStreak) sumStreak.textContent = String(appState.roundBestStreak);
+
+      const ratio = appState.roundCorrect / Math.max(1, appState.deck.length);
+      if (title) {
+        title.innerHTML = ratio >= 0.8
+          ? `Gerçek bir <em>pop kültür</em> gurmesi!`
+          : (ratio >= 0.4 ? `Güzel <em>deneme!</em>` : `Koleksiyon seni <em>bekliyor!</em>`);
+      }
+      if (sub) {
+        sub.textContent = `Toplam ${appState.discoveredIds.length}/${CARDS_DATA.length} ikonik an koleksiyonunda açık.`;
+      }
+
+      const shareNote = document.getElementById(`share-feedback-note`);
+      if (shareNote) shareNote.textContent = ``;
+      if (ratio >= 0.6) spawnWinEffects();
+      showScreen(`summary`);
+    }
+
+    function shareRoundSummary() {
+      SoundEngine.playClick();
+      const cat = CATEGORIES.find((c) => c.id === appState.currentCategoryId);
+      const modeName = cat ? cat.name : `Karışık Maraton`;
+      const shareText = [
+        `✨ I KNOW THAT ICON! — ${modeName}`,
+        `${appState.roundHistory.join(``)} (${appState.roundCorrect}/${appState.deck.length})`,
+        `🏆 Skor: ${appState.roundScore} | 🔥 Seri: ${appState.roundBestStreak}`
+      ].join(`\n`);
+
+      const noteEl = document.getElementById(`share-feedback-note`);
+      const textarea = document.createElement(`textarea`);
+      textarea.value = shareText;
+      textarea.style.position = `fixed`;
+      textarea.style.opacity = `0`;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand(`copy`);
+        if (noteEl) noteEl.textContent = `✓ Skor kartı panoya kopyalandı!`;
+      } catch (e) {
+        if (noteEl) noteEl.textContent = shareText;
+      }
+      document.body.removeChild(textarea);
+    }
+
+    /* =========================================================================
+       9. ARCHIVE RENDER
+       ========================================================================= */
+    function renderArchive() {
+      const grid = document.getElementById(`archive-grid`);
+      const sub = document.getElementById(`archive-subtitle`);
+      if (!grid) return;
+      if (sub) sub.textContent = `Şu ana kadar ${appState.discoveredIds.length} / ${CARDS_DATA.length} ikonik anı açtın.`;
+
+      grid.innerHTML = CARDS_DATA.map((card) => {
+        const unlocked = appState.discoveredIds.includes(card.id);
+        const cat = CATEGORIES.find((c) => c.id === card.categoryId);
+        return `
+          <article class="archive-item ${unlocked ? `` : `is-locked`}">
+            <div class="card-meta-row" style="margin-bottom:0;">
+              <span class="rarity-pill ${getRarityClass(card.rarity)}">${getRarityIcon(card.rarity)} ${card.rarity}</span>
+              <span class="card-index-pill">${cat ? cat.icon : ``} ${unlocked ? `Açıldı` : `Kilitli`}</span>
+            </div>
+            <div class="archive-thumb">
+              ${unlocked
+                ? buildPopArtFrameSvg(card.id, 1)
+                : `<div class="archive-locked-shield">
+                     <span style="font-size:1.7rem;">🔒</span>
+                     <span style="font-size:0.72rem; color:var(--on-surface-variant);">Kilitli İkon</span>
+                   </div>`
+              }
+            </div>
+            <h3 class="archive-item-title">${unlocked ? card.answer : `??? — Henüz Keşfedilmedi`}</h3>
+            <p class="archive-item-story">${unlocked ? card.story : `Bu kartı açmak için "${cat ? cat.name : ``}" kategorisinde doğru tahmin yap.`}</p>
+          </article>
+        `;
+      }).join(``);
+    }
+
+    /* =========================================================================
+       10. CONFETTI & EMOJI BURST PARTICLES
+       ========================================================================= */
+    function getCardOrigin() {
+      const stage = document.getElementById(`play-card-stage`);
+      if (stage) {
+        const rect = stage.getBoundingClientRect();
+        return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      }
+      return { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    }
+
+    function spawnWinEffects() {
+      const layer = document.getElementById(`fx-layer`);
+      if (!layer) return;
+      const colors = [`var(--primary)`, `var(--secondary)`, `var(--tertiary)`, `var(--pop-yellow)`, `var(--pop-emerald)`];
+      const origin = getCardOrigin();
+
+      for (let i = 0; i < 32; i++) {
+        const piece = document.createElement(`span`);
+        piece.className = `confetti-piece`;
+        piece.style.left = `${Math.random() * 100}vw`;
+        piece.style.top = `-16px`;
+        piece.style.background = colors[i % colors.length];
+        piece.style.setProperty(`--tx`, `${(Math.random() - 0.5) * 220}px`);
+        piece.style.setProperty(`--ty`, `${window.innerHeight + 60}px`);
+        piece.style.setProperty(`--rot`, `${(Math.random() - 0.5) * 720}deg`);
+        piece.style.animationDelay = `${Math.random() * 0.22}s`;
+        layer.appendChild(piece);
+        setTimeout(() => piece.remove(), 1800);
+      }
+
+      for (let i = 0; i < 12; i++) {
+        const em = document.createElement(`span`);
+        em.className = `emoji-burst`;
+        em.textContent = `👍`;
+        em.style.left = `${origin.x}px`;
+        em.style.top = `${origin.y}px`;
+        const angle = (Math.PI * 2 * i) / 12 + (Math.random() - 0.5) * 0.3;
+        const dist1 = 50 + Math.random() * 40;
+        const dist2 = 120 + Math.random() * 85;
+        em.style.setProperty(`--tx1`, `${Math.cos(angle) * dist1}px`);
+        em.style.setProperty(`--ty1`, `${Math.sin(angle) * dist1 - 25}px`);
+        em.style.setProperty(`--tx2`, `${Math.cos(angle) * dist2}px`);
+        em.style.setProperty(`--ty2`, `${Math.sin(angle) * dist2 - 75}px`);
+        em.style.setProperty(`--rot`, `${(Math.random() - 0.5) * 45}deg`);
+        layer.appendChild(em);
+        setTimeout(() => em.remove(), 1300);
+      }
+    }
+
+    function spawnLossEffects() {
+      const layer = document.getElementById(`fx-layer`);
+      if (!layer) return;
+      const origin = getCardOrigin();
+      const emojis = [`😢`, `👎`];
+      for (let i = 0; i < 10; i++) {
+        const em = document.createElement(`span`);
+        em.className = `emoji-burst`;
+        em.textContent = emojis[i % emojis.length];
+        em.style.left = `${origin.x}px`;
+        em.style.top = `${origin.y}px`;
+        const spread = (Math.random() - 0.5) * 180;
+        em.style.setProperty(`--tx1`, `${spread * 0.4}px`);
+        em.style.setProperty(`--ty1`, `-35px`);
+        em.style.setProperty(`--tx2`, `${spread}px`);
+        em.style.setProperty(`--ty2`, `${80 + Math.random() * 60}px`);
+        em.style.setProperty(`--rot`, `${(Math.random() - 0.5) * 30}deg`);
+        layer.appendChild(em);
+        setTimeout(() => em.remove(), 1300);
+      }
+    }
+
+    /* =========================================================================
+       11. TOUCH & CURSOR 3D CONTROLLER + 2-FRAME MOTION TRIGGER
+       ========================================================================= */
+    function bindInteractiveHoloCard(stageId, tiltId, options) {
+      const stage = document.getElementById(stageId);
+      const tilt = document.getElementById(tiltId);
+      if (!stage || !tilt) return;
+
+      let startX = 0;
+      let startY = 0;
+      let dragging = false;
+
+      function applyTilt(clientX, clientY) {
+        const rect = stage.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        tilt.classList.add(`is-interacting`);
+        const px = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+        const py = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
+        const rx = (0.5 - py) * 16;
+        const ry = (px - 0.5) * 18;
+
+        tilt.style.setProperty(`--rx`, `${rx.toFixed(2)}deg`);
+        tilt.style.setProperty(`--ry`, `${ry.toFixed(2)}deg`);
+        tilt.style.setProperty(`--mx`, `${(px * 100).toFixed(1)}%`);
+        tilt.style.setProperty(`--my`, `${(py * 100).toFixed(1)}%`);
+        tilt.style.setProperty(`--holo-op`, `0.72`);
+
+        if (options && options.twoFrame && !appState.answered) {
+          if (px >= 0.54) {
+            setCardArtFrame(1, true);
+          } else if (px <= 0.46) {
+            setCardArtFrame(0, true);
+          }
+        }
+      }
+
+      function resetTilt() {
+        tilt.classList.remove(`is-interacting`);
+        tilt.style.setProperty(`--rx`, `0deg`);
+        tilt.style.setProperty(`--ry`, `0deg`);
+        tilt.style.setProperty(`--mx`, `50%`);
+        tilt.style.setProperty(`--my`, `50%`);
+        tilt.style.setProperty(`--holo-op`, `0.28`);
+      }
+
+      stage.addEventListener(`pointerdown`, (e) => {
+        dragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        applyTilt(e.clientX, e.clientY);
+      });
+
+      stage.addEventListener(`pointermove`, (e) => {
+        if (e.pointerType === `mouse` || dragging) {
+          applyTilt(e.clientX, e.clientY);
+        }
+      });
+
+      stage.addEventListener(`pointerup`, (e) => {
+        if (!dragging) return;
+        dragging = false;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        const dist = Math.hypot(dx, dy);
+
+        if (options && options.isHub && !appState.hubFlipped) {
+          if (Math.abs(dx) > 32 || dist < 14) {
+            flipHubToBack();
+          }
+        }
+
+        if (options && options.twoFrame && !appState.answered && dist < 14) {
+          setCardArtFrame(appState.activeFrame === 0 ? 1 : 0, true);
+        }
+
+        if (e.pointerType !== `mouse`) {
+          resetTilt();
+        }
+      });
+
+      stage.addEventListener(`pointercancel`, () => {
+        dragging = false;
+        resetTilt();
+      });
+
+      stage.addEventListener(`pointerleave`, () => {
+        dragging = false;
+        resetTilt();
+      });
+    }
+
+    /* =========================================================================
+       12. INITIALIZATION
+       ========================================================================= */
+    function initApp() {
+      const hubArt = document.getElementById(`hub-teaser-art`);
+      if (hubArt) hubArt.innerHTML = buildPopArtFrameSvg(`britney`, 0);
+
+      bindInteractiveHoloCard(`hub-stage`, `hub-tilt`, { isHub: true });
+      bindInteractiveHoloCard(`play-card-stage`, `play-card-tilt`, { twoFrame: true });
+
+      loadLocalState();
+      renderHubCategories();
+    }
+
+    initApp();
+  </script>
+</body>
+</html>
